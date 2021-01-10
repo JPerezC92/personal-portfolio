@@ -1,0 +1,15 @@
+:root {
+  /* CSS HSL */
+  --tan-crayola: hsla(24, 69%, 67%, 1);
+  --sinopia: hsla(18, 58%, 46%, 1);
+  --rich-black-fogra-39: hsla(0, 0%, 5%, 1);
+  --medium-aquamarine: hsla(148, 62%, 64%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+
+  --background: hsla(18, 58%, 46%, 1);
+  --color-light: var(--white);
+  --color-dark: var(--rich-black-fogra-39);
+  --background-element: hsla(18, 58%, 46%, 1);
+  --shadow: var(--medium-aquamarine);
+  --color-line: var(--sinopia);
+}

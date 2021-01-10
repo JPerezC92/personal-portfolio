@@ -1,0 +1,9 @@
+@import "./light.css";
+@import "./__globals.css";
+@import "./sections/nabvar.css";
+@import "./sections/header.css";
+@import "./sections/aboutMe.css";
+@import "./sections/skills.css";
+@import "./sections/portfolio.css";
+@import "./sections/contact.css";
+@import "./sections/footer.css";
