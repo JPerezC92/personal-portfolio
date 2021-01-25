@@ -25,3 +25,7 @@
 .skills__item__level {
   font-size: 1rem;
 }
+
+.skills__item__icon--filter {
+  filter: grayscale(100%) contrast(5);
+}
