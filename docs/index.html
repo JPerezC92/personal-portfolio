@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <title>Philip Pérez Castro | Estudiante Desarrollo Software</title>
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar__container">
+        <a class="navbar__logo" href="index.html">Philip Pérez Castro</a>
+
+        <nav class="navbar__menu" id="navbar__menu">
+          <ul class="navbar__linksList">
+            <li class="navbar__linksList__item"><a href="#aboutMe">Sobre mí</a></li>
+            <li class="navbar__linksList__item"><a href="#skills">Conocimientos</a></li>
+            <li class="navbar__linksList__item"><a href="#portfolio">Portafolio</a></li>
+            <li class="navbar__linksList__item"><a href="#contact">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <button class="navbar__menuAccordion" id="menuAccordion">
+          <i class="fas fa-bars"></i>
+        </button>
+        <button class="navbar__closeButton hide" id="closeButton">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header__content">
+        <picture class="header__contentImg">
+          <img src="./static/img/developer.jpg" alt="Programador trabajando" />
+        </picture>
+        <div class="header__content-column">
+          <h1 class="header__title">Soy Philip y estudio Desarrollo de Software</h1>
+          <h2 class="header__subtitle">
+            Actualmente estoy en busca de practicas pre-profesionales
+          </h2>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="aboutMe section" id="aboutMe">
+        <h2 class="section__title">Sobre mí</h2>
+
+        <div class="aboutMe__content">
+          <picture class="aboutMe__image">
+            <img src="./static/img/personal-photo.jpg" alt="Philip" />
+          </picture>
+          <div class="aboutMe__description">
+            <p>
+              Me llamo Philip Pérez Castro, vivo en <strong>Ancash(Perú)</strong>, curso
+              el segundo año de estudio de Desarrollo de software en el Instítuto
+              Educativo <strong>SENATI</strong>.
+            </p>
+
+            <p>
+              Soy una persona autodidacta y responsable. Actualmente estoy aprendiendo
+              <strong>NodeJS</strong> con el framework <strong>Express</strong>
+            </p>
+
+            <p>
+              Puedes descargar mi
+              <a href="./static/CV_2021.pdf" download="Philip_CV_2021"
+                ><strong>CV</strong></a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills section" id="skills">
+        <h2 class="section__title">Conocimientos</h2>
+        <p class="section__intro">
+          Estan son alguna de las tecnologias de las que tengo conocimientos.
+        </p>
+
+        <div class="skills__content">
+          <div class="skills__item">
+            <i class="skills__item__icon fab fa-html5 fa-4x"></i>
+            <h3 class="skills__item__title">HTML5</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+
+          <div class="skills__item">
+            <i class="skills__item__icon fab fa-css3-alt fa-4x"></i>
+            <h3 class="skills__item__title">CSS</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+
+          <div class="skills__item">
+            <i class="skills__item__icon fab fa-js fa-4x"></i>
+            <h3 class="skills__item__title">JavaScript</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+
+          <div class="skills__item">
+            <i class="skills__item__icon fab fa-react fa-4x" title="React"></i>
+            <h3 class="skills__item__title">React</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+
+          <div class="skills__item">
+            <i class="skills__item__icon fab fa-node fa-4x"></i>
+            <h3 class="skills__item__title">NodeJS</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+
+          <div class="skills__item">
+            <i class="skills__item__icon fab fa-git-alt fa-4x"></i>
+            <h3 class="skills__item__title">Git</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+
+          <div class="skills__item">
+            <i class="skills__item__icon fas fa-database fa-4x"></i>
+            <h3 class="skills__item__title">SQL</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+
+          <div class="skills__item">
+            <img
+              class="skills__item__icon skills__item__icon--filter"
+              src="https://www.vectorlogo.zone/logos/jquery/jquery-icon.svg"
+            />
+            <h3 class="skills__item__title">jQuery</h3>
+            <p class="skills__item__level">Basico</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio section" id="portfolio">
+        <h2 class="section__title">Portafolio</h2>
+        <p class="section__intro">
+          Estos son algunos de mis proyectos personales en los que eh estado trabajando.
+        </p>
+        <div class="portfolio__content">
+          <div class="portfolio__card">
+            <h3 class="project__title">
+              <span> < </span>Gif expert app<span> /> </span>
+            </h3>
+            <picture class="project__img">
+              <img src="./static/img/miniature/gif-expert-app.png" alt="gif expert app" />
+            </picture>
+
+            <div class="project__links">
+              <a
+                class="project__link__demo"
+                href="https://jperezc92.github.io/04-gif-expert-app/"
+                target="_blank"
+                >Demo</a
+              >
+              <a
+                class="project__link__repository"
+                href="https://github.com/JPerezC92/04-gif-expert-app"
+                target="_blank"
+                >Repositorio</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section" id="contact">
+        <h2 class="section__title">Contacto</h2>
+
+        <ul class="contact__socialNetworks">
+          <li class="contact__socialNetworks__item">
+            <a href="http://www.linkedin.com/in/jperezc92" target="_blank">
+              <img src="./static/img/linkedin.svg" alt="LinkedIn" />LinkedIn</a
+            >
+          </li>
+
+          <li class="contact__socialNetworks__item">
+            <a href="https://twitter.com/dev_spaghetti" target="_blank">
+              <img src="./static/img/twitter.svg" alt="Twitter" />Twitter</a
+            >
+          </li>
+
+          <li class="contact__socialNetworks__item">
+            <a href="https://github.com/JPerezC92" target="_blank">
+              <img src="./static/img/github.svg" alt="Github" />Github</a
+            >
+          </li>
+          <li class="contact__socialNetworks__item">
+            <a href="mailto:jperez.c92@gmail.com">
+              <img src="./static/img/gmail.png" alt="Email" />Gmail</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      © 2021 Philip Pérez Castro. Todos los Derechos Reservados.
+    </footer>
+
+    <script src="./static/js/index.js"></script>
+  </body>
+</html>

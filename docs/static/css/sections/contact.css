@@ -1,0 +1,23 @@
+.contact__socialNetworks {
+  margin: 2rem 0;
+}
+
+.contact__socialNetworks__item a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact__socialNetworks__item img {
+  width: 6rem;
+  padding: 0.5rem 1rem;
+}
+
+@media only screen and (min-width: 800px) {
+  .contact__socialNetworks {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

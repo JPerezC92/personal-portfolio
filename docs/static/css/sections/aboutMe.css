@@ -1,0 +1,26 @@
+.aboutMe__content {
+  margin: 1rem 1rem 0 1rem;
+  max-width: 1000px;
+  margin-top: 2.5rem;
+  display: grid;
+  justify-items: center;
+}
+
+.aboutMe__content p {
+  margin: 1rem 0;
+}
+
+.aboutMe__image img {
+  padding: 1rem;
+  height: auto;
+  width: 100%;
+  min-width: 1rem;
+  max-width: 15rem;
+  box-shadow: 0 0 8px 1px var(--shadow);
+}
+
+@media only screen and (min-width: 800px) {
+  .aboutMe__content {
+    grid-template-columns: repeat(auto-fit, 25rem);
+  }
+}
