@@ -1,5 +1,5 @@
 @import "./light.css";
-@import "./__globals.css";
+@import "./globals.css";
 @import "./sections/nabvar.css";
 @import "./sections/header.css";
 @import "./sections/aboutMe.css";
