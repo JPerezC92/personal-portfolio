@@ -1,0 +1,52 @@
+@use "styles/palette.scss";
+@use "styles/typography.scss";
+
+.Contact {
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  margin-block: 2rem;
+  padding-block: 4rem;
+
+  &:before {
+    border-block: 1px solid palette.$alloy-orange;
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 80%;
+  }
+
+  .Contact_title {
+    color: palette.$alloy-orange;
+    font-family: typography.$JetBrainsMono;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.4rem;
+    text-align: center;
+  }
+
+  .Contact_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    & svg {
+      vertical-align: middle;
+    }
+
+    & a {
+      font-size: 3rem;
+      color: palette.$rust;
+
+      :hover {
+        color: palette.$gamboge;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { Hero } from "@/components/Hero";
 import { AboutMe } from "@/components/AboutMe";
 import { Skills } from "@/components/Skills";
 import { Proyects } from "@/components/Proyects";
+import { Contact } from "@/components/Contact";
 
 const Home: NextPage = () => {
   return (
@@ -22,9 +23,9 @@ const Home: NextPage = () => {
           rowGap: "4rem",
         }}
       >
+        <Contact />
         <AboutMe />
         <Skills />
-
         <Proyects />
       </main>
     </Layout>

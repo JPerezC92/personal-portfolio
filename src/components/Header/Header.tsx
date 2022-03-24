@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { MdOutlineDeveloperMode } from "react-icons/md";
 
 import { useWindowSize } from "@/hooks/useWindowSize";
-import styles from "./Header.module.scss";
 import { useToggle } from "@/hooks/useToggle";
+import styles from "./Header.module.scss";
 
 type HeaderProps = {};
 
@@ -27,7 +28,12 @@ export const Header: FC<HeaderProps> = ({}) => {
   return (
     <>
       <header className={`${styles.Header}`}>
-        <span className={styles.Brand}>Philip Perez Castro</span>
+        {/* <span className={styles.Brand}>Philip Perez Castro</span> */}
+        <span className={styles.Brand}>
+          <i>
+            <MdOutlineDeveloperMode />
+          </i>
+        </span>
 
         {isTablet ? (
           <nav className={`${styles.Navigation} ${styles.Navigation__mobile}`}>
@@ -42,11 +48,11 @@ export const Header: FC<HeaderProps> = ({}) => {
                 <ul className={styles.Navigation_mobile_list} onClick={toggle}>
                   <NavItem href="#about-me">Sobre mi</NavItem>
                   <hr />
+                  <NavItem href="#contact">Contacto</NavItem>
+                  <hr />
                   <NavItem href="#skills">Conocimientos</NavItem>
                   <hr />
                   <NavItem href="#projects">Proyectos</NavItem>
-                  <hr />
-                  <NavItem href="#contact">Contacto</NavItem>
                 </ul>
               </>
             )}
@@ -55,9 +61,9 @@ export const Header: FC<HeaderProps> = ({}) => {
           <nav className={`${styles.Navigation}`}>
             <ul className={styles.Navigation_list}>
               <NavItem href="#about-me">Sobre mi</NavItem>
+              <NavItem href="#contact">Contacto</NavItem>
               <NavItem href="#skills">Conocimientos</NavItem>
               <NavItem href="#projects">Proyectos</NavItem>
-              <NavItem href="#contact">Contacto</NavItem>
             </ul>
           </nav>
         )}
