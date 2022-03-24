@@ -1,0 +1,41 @@
+@use "styles/palette.scss";
+@use "styles/typography.scss";
+
+.Skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-block: 6rem;
+  justify-content: space-evenly;
+
+  svg {
+    vertical-align: middle;
+  }
+
+  .Skills_title {
+    font-family: typography.$JetBrainsMono;
+    color: palette.$medium-champagne;
+    letter-spacing: 0.4rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    width: 100%;
+  }
+
+  .Skills_card {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+
+    & i {
+      background-clip: text;
+      font-size: 3rem;
+      color: #f5f5f5;
+    }
+
+    & p {
+      font-size: 1.5rem;
+      color: palette.$medium-champagne;
+    }
+  }
+}

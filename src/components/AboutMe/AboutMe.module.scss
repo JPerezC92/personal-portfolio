@@ -1,5 +1,36 @@
+@use "styles/palette.scss";
+@use "styles/typography.scss";
+
 .AboutMe {
-  background: red;
-  width: min(90%, 80rem);
-  margin: auto;
+  align-items: center;
+  background: palette.$blue-sapphire;
+  background: palette.$medium-champagne;
+  border-radius: 2rem;
+  column-gap: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-block: 6rem;
+  padding-inline: 1rem;
+  row-gap: 2rem;
+
+  .AboutMe_title {
+    font-family: typography.$JetBrainsMono;
+    letter-spacing: 0.4rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    width: 100%;
+  }
+
+  .AboutMe_photo {
+    border-radius: 1rem;
+    overflow: hidden;
+
+    width: min(100%, 18rem);
+  }
+
+  .AboutMe_text {
+    width: min(100%, 20rem);
+  }
 }
