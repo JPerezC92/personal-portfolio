@@ -1,0 +1,29 @@
+@use "styles/palette";
+.Hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  // background: palette.$gamboge;
+
+  .Hero_container {
+    max-width: min(90%, 40rem);
+    margin: auto;
+    color: palette.$medium-champagne;
+    text-shadow: 0 0 1rem palette.$medium-champagne;
+
+    .Hero_title {
+      font-size: 2rem;
+      border-radius: 0.5rem;
+      max-width: min(90%, 40rem);
+
+      & strong {
+        text-shadow: 0 0 1rem palette.$rufous;
+        font-size: 3.5rem;
+      }
+    }
+
+    .Hero_subtitle {
+      font-size: 1.2rem;
+    }
+  }
+}
