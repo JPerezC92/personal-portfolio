@@ -1,0 +1,78 @@
+@use "styles/palette.scss";
+@use "styles/typography.scss";
+
+.Proyects {
+  padding-block: 4rem;
+  border-radius: 2rem;
+  border-block: 1px solid palette.$medium-champagne;
+  margin-block-end: 4rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+
+  .Proyects_title {
+    font-family: typography.$JetBrainsMono;
+    color: palette.$medium-champagne;
+    letter-spacing: 0.4rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    width: 100%;
+  }
+
+  .Proyects_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    column-gap: 2rem;
+    row-gap: 4rem;
+  }
+
+  .Proyects_card {
+    background: palette.$medium-champagne;
+    box-shadow: 0 0 1rem palette.$ruby-red;
+    width: min(100%, 20rem);
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    .Card_title {
+      font-family: typography.$JetBrainsMono;
+      color: palette.$medium-champagne;
+      text-shadow: 0 0 1rem palette.$rich-black-fogra-29;
+      padding-block: 0.2rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: palette.$ruby-red;
+    }
+
+    .Card_image {
+      height: 25rem;
+      margin: 0.5rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    .Card_buttons {
+      background: palette.$medium-champagne;
+      font-size: 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 50%);
+      text-align: center;
+      overflow: hidden;
+
+      & a {
+        text-decoration: none;
+        color: palette.$rich-black-fogra-29;
+        font-weight: 900;
+        padding-block: 0.5rem;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: palette.$medium-champagne;
+          background: palette.$ruby-red;
+        }
+      }
+    }
+  }
+}

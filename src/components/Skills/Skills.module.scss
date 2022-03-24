@@ -3,10 +3,9 @@
 
 .Skills {
   display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  padding-block: 6rem;
-  justify-content: space-evenly;
+  flex-direction: column;
+  row-gap: 3rem;
+  padding-block: 4rem;
 
   svg {
     vertical-align: middle;
@@ -19,7 +18,13 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 900;
-    width: 100%;
+  }
+
+  .Skills_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 3rem;
   }
 
   .Skills_card {
