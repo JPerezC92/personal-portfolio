@@ -3,7 +3,7 @@ import connect4 from "public/projects/connect4.png";
 export interface Project {
   name: string;
   description?: string;
-  url: string;
+  url?: string;
   repository: string;
   image: StaticImageData;
 }

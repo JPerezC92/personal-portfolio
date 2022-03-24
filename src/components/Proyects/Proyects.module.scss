@@ -36,41 +36,41 @@
     overflow: hidden;
 
     .Card_title {
-      font-family: typography.$JetBrainsMono;
+      background: palette.$ruby-red;
       color: palette.$medium-champagne;
-      text-shadow: 0 0 1rem palette.$rich-black-fogra-29;
-      padding-block: 0.2rem;
-      text-align: center;
+      font-family: typography.$JetBrainsMono;
       font-size: 1.5rem;
       font-weight: 900;
-      background: palette.$ruby-red;
+      padding-block: 0.2rem;
+      text-align: center;
+      text-shadow: 0 0 1rem palette.$rich-black-fogra-29;
     }
 
     .Card_image {
+      border-radius: 0.5rem;
       height: 25rem;
       margin: 0.5rem;
-      border-radius: 0.5rem;
       overflow: hidden;
     }
 
     .Card_buttons {
       background: palette.$medium-champagne;
-      font-size: 1.2rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, 50%);
+      font-size: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
       text-align: center;
-      overflow: hidden;
 
       & a {
-        text-decoration: none;
+        border: 1px solid palette.$ruby-red;
         color: palette.$rich-black-fogra-29;
         font-weight: 900;
         padding-block: 0.5rem;
+        text-decoration: none;
         transition: all 0.3s ease-in-out;
 
         &:hover {
-          color: palette.$medium-champagne;
           background: palette.$ruby-red;
+          color: palette.$medium-champagne;
         }
       }
     }
