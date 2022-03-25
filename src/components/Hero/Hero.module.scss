@@ -12,9 +12,12 @@
     text-shadow: 0 0 1rem palette.$medium-champagne;
 
     .Hero_title {
-      font-size: 2rem;
       border-radius: 0.5rem;
       max-width: min(90%, 40rem);
+
+      .Hero_welcome {
+        font-size: 2rem;
+      }
 
       & strong {
         text-shadow: 0 0 1rem palette.$rufous;
@@ -24,6 +27,24 @@
 
     .Hero_subtitle {
       font-size: 1.2rem;
+    }
+
+    .Hero_button {
+      margin-top: 1rem;
+      background: transparent;
+      border-radius: 0.5rem;
+      border: 1px solid palette.$rufous;
+      color: palette.$medium-champagne;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      text-shadow: 0 0 1rem palette.$rufous;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: palette.$rufous;
+        color: palette.$medium-champagne;
+        text-shadow: 0 0 1rem palette.$medium-champagne;
+      }
     }
   }
 }

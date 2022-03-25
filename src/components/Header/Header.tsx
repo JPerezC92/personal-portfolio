@@ -46,7 +46,7 @@ export const Header: FC<HeaderProps> = ({}) => {
             {isActive && (
               <>
                 <ul className={styles.Navigation_mobile_list} onClick={toggle}>
-                  <NavItem href="#about-me">Sobre mi</NavItem>
+                  <NavItem href="#about-me">Sobre mí</NavItem>
                   <hr />
                   <NavItem href="#contact">Contacto</NavItem>
                   <hr />
@@ -60,7 +60,7 @@ export const Header: FC<HeaderProps> = ({}) => {
         ) : (
           <nav className={`${styles.Navigation}`}>
             <ul className={styles.Navigation_list}>
-              <NavItem href="#about-me">Sobre mi</NavItem>
+              <NavItem href="#about-me">Sobre mí</NavItem>
               <NavItem href="#contact">Contacto</NavItem>
               <NavItem href="#skills">Conocimientos</NavItem>
               <NavItem href="#projects">Proyectos</NavItem>

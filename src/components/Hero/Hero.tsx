@@ -13,13 +13,12 @@ export const Hero: FC<HeroProps> = (props) => {
     <section className={`${styles.Hero}`}>
       <div className={`${styles.Hero_container}`}>
         <h1 className={`${styles.Hero_title}`}>
-          Bienvenido,
-          <br />
-          <strong>Soy Philip Perez.</strong>
-        </h1>
+          <div className={styles.Hero_welcome}>Bienvenido,</div>
 
-        <h2 className={`${styles.Hero_subtitle}`}>
-          <>
+          <strong>Soy Philip Perez.</strong>
+          <br />
+
+          <span className={`${styles.Hero_subtitle}`}>
             <i style={{ color: reactColor }}>
               <SiReact />
             </i>{" "}
@@ -33,8 +32,12 @@ export const Hero: FC<HeroProps> = (props) => {
               <SiPython />
             </i>{" "}
             Python.
-          </>
-        </h2>
+          </span>
+        </h1>
+
+        {/* <button className={styles.Hero_button} type="button">
+          Descargar CV
+        </button> */}
       </div>
     </section>
   );

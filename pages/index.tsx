@@ -7,10 +7,21 @@ import { AboutMe } from "@/components/AboutMe";
 import { Skills } from "@/components/Skills";
 import { Proyects } from "@/components/Proyects";
 import { Contact } from "@/components/Contact";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
     <Layout>
+      <Head>
+        <title>Philip Perez Castro | Web Developer | ReactJS</title>
+        <meta
+          property="og:title"
+          content="Philip Perez Castro | Web Developer | ReactJS"
+          key="title"
+        />
+        <meta property="og:image" content="/open-grap.png" key="image" />
+      </Head>
+
       <Header />
       <Hero />
 
