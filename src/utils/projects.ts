@@ -1,5 +1,6 @@
 import connect4 from "public/projects/connect4.png";
 import quizAgainstTime from "public/projects/quiz-against-time.png";
+import pomodoro from "public/projects/pomodoro.png";
 
 export interface Project {
   name: string;
@@ -10,6 +11,12 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    name: "Pomodoro",
+    url: "https://pomodoro-ten-phi.vercel.app/",
+    repository: "https://github.com/JPerezC92/pomodoro-react",
+    image: pomodoro,
+  },
   {
     name: "Conecta 4",
     url: "https://connect4-steel.vercel.app/",
