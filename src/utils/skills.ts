@@ -1,6 +1,11 @@
 import { IconType } from "react-icons";
 import { TiCss3, TiHtml5 } from "react-icons/ti";
-import { SiJavascript, SiPython, SiReact, SiTypescript } from "react-icons/si";
+import {
+  SiJavascript,
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+} from "react-icons/si";
 import { FaGitAlt, FaNodeJs } from "react-icons/fa";
 
 export interface Skill {
@@ -38,18 +43,23 @@ export const skills: Skill[] = [
     color: "#3178c6",
   },
   {
-    description: "NodeJS",
-    icon: FaNodeJs,
-    color: "#026e00",
+    description: "NextJs",
+    icon: SiNextdotjs,
+    color: "#FFFFFF",
   },
   {
     description: "Git",
     icon: FaGitAlt,
     color: "#f34c27",
   },
-  {
-    description: "Python",
-    icon: SiPython,
-    color: "#3572A5",
-  },
+  // {
+  //   description: "NodeJS",
+  //   icon: FaNodeJs,
+  //   color: "#026e00",
+  // },
+  // {
+  //   description: "Python",
+  //   icon: SiPython,
+  //   color: "#3572A5",
+  // },
 ];

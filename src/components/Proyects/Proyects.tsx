@@ -14,7 +14,7 @@ export const Proyects: FC<ProyectsProps> = (props) => {
 
       <ul className={styles.Proyects_list}>
         {projects.map((project) => (
-          <li key={project.url} className={styles.Proyects_card}>
+          <li key={project.repository} className={styles.Proyects_card}>
             <h3 className={styles.Card_title}>{project.name}</h3>
 
             <div className={styles.Card_image}>

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SiReact, SiPython, SiJavascript } from "react-icons/si";
+import { SiReact, SiTypescript, SiJavascript } from "react-icons/si";
 
 import styles from "./Hero.module.scss";
 
@@ -8,7 +8,8 @@ type HeroProps = {};
 export const Hero: FC<HeroProps> = (props) => {
   const reactColor = "#61dafb";
   const javaScriptColor = "#f7df1e";
-  const pythonColor = "#3572A5";
+  const typescriptColor = "#3178c6";
+
   return (
     <section className={`${styles.Hero}`}>
       <div className={`${styles.Hero_container}`}>
@@ -28,10 +29,10 @@ export const Hero: FC<HeroProps> = (props) => {
               <SiJavascript />
             </i>{" "}
             JavaScript y{" "}
-            <i style={{ color: pythonColor }}>
-              <SiPython />
+            <i style={{ color: typescriptColor }}>
+              <SiTypescript />
             </i>{" "}
-            Python.
+            Typescript.
           </span>
         </h1>
 

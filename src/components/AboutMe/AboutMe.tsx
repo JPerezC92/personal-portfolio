@@ -13,7 +13,6 @@ export const AboutMe: FC<AboutMeProps> = (props) => {
 
         <div className={`${styles.AboutMe_content}`}>
           <span className={`${styles.AboutMe_photo}`}>
-            {/* <Image src={p.photo} alt="Philip photo" layout="responsive" /> */}
             <Image
               src="/personal-photo.jpg"
               alt="Philip photo"
@@ -26,13 +25,13 @@ export const AboutMe: FC<AboutMeProps> = (props) => {
             <p>
               Vivo en <strong>Perú</strong>. Soy desarrollador enfocado a web,
               autodidacta y apasionado por la programación. Acabo de terminar de
-              estudiar en el Instituto Educativo <strong>SENATI</strong>.
+              estudiar en el Instituto <strong>SENATI</strong>.
             </p>
 
             <p>
               Actualmente estoy reforzando mis conocimientos en{" "}
-              <strong>Python</strong> y aprendiendo sobre el framework{" "}
-              <strong>FastApi</strong>.
+              <strong>Css</strong> y aprendiendo a usar la biblioteca{" "}
+              <strong>Styled components</strong>.
             </p>
           </div>
         </div>
