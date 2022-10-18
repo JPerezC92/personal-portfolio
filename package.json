@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@stitches/react": "^1.2.8",
-    "@unocss/reset": "^0.45.26",
-    "hex-rgb": "^5.0.0",
+    "@radix-ui/react-scroll-area": "1.0.0",
+    "@stitches/react": "1.2.8",
+    "@unocss/reset": "0.45.26",
+    "framer-motion": "7.5.4",
+    "hex-rgb": "5.0.0",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "smart-swatch": "^1.1.0"
+    "react-icons": "4.4.0",
+    "smart-swatch": "1.1.0"
   },
   "devDependencies": {
     "@types/node": "18.7.23",
@@ -23,8 +26,9 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1",
-    "eslint-config-prettier": "^8.5.0",
-    "reactcci": "^1.11.0",
+    "eslint-config-prettier": "8.5.0",
+    "reactcci": "1.11.0",
     "typescript": "4.8.4"
   }
 }
+

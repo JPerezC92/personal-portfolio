@@ -1,5 +1,6 @@
 import {
   createStitches,
+  CSS,
   defaultThemeMap,
   PropertyValue,
 } from '@stitches/react';
@@ -18,6 +19,7 @@ export const {
   globalCss,
   styled,
   theme,
+  keyframes,
 } = createStitches({
   themeMap: { ...defaultThemeMap },
   theme: {
@@ -43,7 +45,15 @@ export const globalStyles = globalCss({
     backgroundColor: '$info900',
   },
   '#__next': {
-    minHeight: '100vh',
-    display: 'grid',
+    // minHeight: '100vh',
+    // display: 'grid',
+    // minHeight: '100%',
+    // height: '100%',
+    // maxHeight: 'auto',
+    height: '100vh',
+    width: '100vw',
+    overflow: 'hidden',
   },
 });
+
+export type CSSThemeProperties = CSS<typeof config>;
