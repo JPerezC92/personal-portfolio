@@ -35,36 +35,37 @@ const special2 = generatePallete('#8B26C0', 'special2_');
 const special2Alphas = generateAlphas(special2);
 
 export const colors = {
-  ...primary,
-  ...primaryAlphas,
+	...primary,
+	...primaryAlphas,
 
-  ...secondary,
-  ...secondaryAlphas,
+	...secondary,
+	...secondaryAlphas,
 
-  ...success,
-  ...successAlphas,
+	...success,
+	...successAlphas,
 
-  ...info,
-  ...infoAlphas,
+	...info,
+	...infoAlphas,
 
-  ...warning,
-  ...warningAlphas,
+	...warning,
+	...warningAlphas,
 
-  ...danger,
-  ...dangerAlphas,
+	...danger,
+	...dangerAlphas,
 
-  ...neutralDark,
-  ...neutralDarkAlphas,
+	...neutralDark,
+	...neutralDarkAlphas,
 
-  ...neutralMedium,
-  ...neutralMediumAlphas,
+	...neutralMedium,
+	...neutralMediumAlphas,
 
-  ...neutralLigth,
-  ...neutralLigthAlphas,
+	...neutralLigth,
+	...neutralLigthAlphas,
 
-  ...special1,
-  ...special1Alphas,
+	...special1,
+	...special1Alphas,
 
-  ...special2,
-  ...special2Alphas,
+	...special2,
+	...special2Alphas,
 };
+

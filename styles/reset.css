@@ -86,3 +86,7 @@ meter {
 :where([draggable='true']) {
   -webkit-user-drag: element;
 }
+
+a {
+  cursor: pointer;
+}

@@ -1,72 +1,85 @@
 import type { NextPage } from 'next';
-import { Heading } from 'src/shared/components/Heading';
-import { Text } from 'src/shared/components/Text';
-import { css, styled } from 'stitches.config';
+import { AboutMe } from 'src/landing/components/AboutMe';
+import { Footer } from 'src/landing/components/Footer';
+import { Hero } from 'src/landing/components/Hero';
+import { Navbar } from 'src/landing/components/Navbar';
+import { Projects } from 'src/landing/components/Projects';
+import { Skills } from 'src/landing/components/Skills';
+import { Box } from 'src/shared/components/Box';
+import { Image } from 'src/shared/components/Image';
+import { ScrollArea } from 'src/shared/components/ScrollArea';
+import { Section } from 'src/shared/components/Section';
+import { SEO } from 'src/shared/components/SEO';
+import { rgbDataURL } from 'src/shared/utils/rgbDataURL';
+import { styled } from 'stitches.config';
 
 const NextPageStyled = styled('div', {
-  paddingInline: '$space03',
+  backgroundColor: '$special2_900_a90',
+  '&::before': {
+    content: '""',
+    position: 'fixed',
+    inset: 0,
+    background: 'url(/body-bg.webp)',
+    zIndex: '-1',
+    filter: 'blur(2px)',
+  },
 });
 
 const HomePage: NextPage = () => {
   return (
-    <NextPageStyled>
-      <main
-        className={css({
-          maxWidth: '$max-w-screen-2xl',
-          margin: 'auto',
-        })()}
-      >
-        <Heading
+    <ScrollArea>
+      <SEO
+        title="Philip Perez Castro"
+        siteTitle="Frontend developer"
+        description="Aquí puedes encontrar información sobre Philip Perez Castro"
+      />
+
+      <NextPageStyled>
+        <Navbar />
+
+        <Box
+          as="main"
           css={{
-            margin: 'auto',
-            maxWidth: '$max-w-xl',
-            paddingBlock: '$space08',
+            maxWidth: '$max-w-screen-lg',
+            marginInline: 'auto',
+            paddingInline: '$space04',
+            paddingBottom: '$space20',
+            [`& ${Section} + ${Section}`]: { paddingTop: '$space20' },
+            '@lg': {
+              paddingInline: '$space00',
+              [`& ${Section} + ${Section}`]: { paddingTop: '$space30' },
+            },
           }}
         >
-          <Text fontStyle="L1">Bienvenido, soy</Text>
+          <Hero id="hero" />
 
-          <Heading fontStyle="L2" as="div" css={{ marginBlock: '$space02' }}>
-            Philip Perez Castro,
-          </Heading>
+          <AboutMe id="about-me" />
 
-          <Text fontStyle="L1">
-            React developer en entrenamiento, 📚 autodidacta, principalmente
-            interesado en ampliar mis conocimientos en JavaScript y Typescript.
-          </Text>
-        </Heading>
+          <Skills id="skills" />
 
-        <section id="about-me" className={css({ paddingBlock: '$space08' })()}>
-          <Heading as="h2" fontStyle="L2">
-            Sobre mí
-          </Heading>
+          <Projects id="projects" />
+        </Box>
 
-          <hr
-            className={css({
-              borderColor: '$secondary600',
-              marginBlock: '$space04',
-              borderWidth: '1px',
-              borderStyle: 'solid',
-            })()}
+        <Box as="picture" css={{ display: 'flex' }}>
+          <Image
+            src="/playful-cat.svg"
+            width="0"
+            height="0"
+            alt="playful cat"
+            placeholder="blur"
+            blurDataURL={rgbDataURL(43, 432, 21)}
+            css={{
+              width: 'auto',
+              height: 'auto',
+              marginInline: 'auto',
+              '@md': { maxWidth: '$max-w-md' },
+            }}
           />
+        </Box>
 
-          <div
-            className={css({ '& p + p': { marginBlockStart: '$space08' } })()}
-          >
-            <Text as="p">
-              Vivo en <strong>Perú</strong>. Soy desarrollador enfocado a web,
-              autodidacta y apasionado por la programación. Acabo de terminar de
-              estudiar en el Instituto <strong>SENATI</strong>.
-            </Text>
-
-            <Text as="p">
-              Actualmente estoy reforzando mis conocimientos en{' '}
-              <strong>Css</strong> y aprendiendo a usar la biblioteca{' '}
-              <strong>Styled components</strong>.
-            </Text>
-          </div>
-        </section>
-      </main>
-    </NextPageStyled>
+        <Footer />
+      </NextPageStyled>
+    </ScrollArea>
   );
 };
 

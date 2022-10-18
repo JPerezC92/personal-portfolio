@@ -37,3 +37,4 @@ export function generateAlphas<
     [key in `${T}_${AlphaScale}`]: string;
   };
 }
+

@@ -16,14 +16,14 @@ export const Text = styled('span', {
         fontWeight: '600',
         letterSpacing: '0',
         lineHeight: '150%',
-        '@bp1': { fontSize: '$lg' },
+        '@sm': { fontSize: '$lg' },
       },
       L2: {
         fontSize: '$xs',
         fontWeight: '600',
         letterSpacing: '0',
         lineHeight: '150%',
-        '@bp1': { fontSize: '$sm' },
+        '@sm': { fontSize: '$sm' },
       },
     },
     textStyle: {
@@ -40,7 +40,7 @@ export const Text = styled('span', {
     {
       fontStyle: 'L2',
       textStyle: 'allCaps',
-      css: { letterSpacing: '0', '@bp1': { letterSpacing: '.05em' } },
+      css: { letterSpacing: '0', '@sm': { letterSpacing: '.05em' } },
     },
   ],
 });
