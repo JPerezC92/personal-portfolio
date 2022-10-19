@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { socialList } from 'src/landing/utils/socialList';
 import { Box } from 'src/shared/components/Box';
+import { Button } from 'src/shared/components/Button';
 import { Heading } from 'src/shared/components/Heading';
 import { IconButton } from 'src/shared/components/IconButton';
 import { Image } from 'src/shared/components/Image';
@@ -43,24 +44,35 @@ export const Hero: React.FC<HeroProps> = (props) => {
 						React developer en entrenamiento, 📚 autodidacta,
 						principalmente interesado en ampliar mis conocimientos
 						en <strong>JavaScript</strong> y{' '}
-						<strong>Typescript</strong>.
+						<strong>Typescript</strong>.{' '}
 					</Text>
 				</Heading>
 
 				<Box
 					css={{
 						marginBlockStart: '$space04',
-						[`& ${IconButton} + ${IconButton}`]: {
-							marginInlineStart: '$space02',
-						},
+						display: 'flex',
+						gap: '$space02',
 					}}
 				>
+					<Link href="/curriculum.pdf" passHref>
+						<Button
+							as="a"
+							title="Curriculum"
+							download="Philip Perez Castro Curriculum"
+							target="_blank"
+						>
+							CV
+						</Button>
+					</Link>
+
 					{socialList.map((v) => (
 						<Link key={v.link} href={v.link} passHref>
 							<IconButton
 								as="a"
 								target="_blank"
 								asIcon={v.icon}
+								title={v.title}
 								size="sm"
 								variant="outline"
 							/>

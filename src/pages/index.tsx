@@ -14,73 +14,77 @@ import { rgbDataURL } from 'src/shared/utils/rgbDataURL';
 import { styled } from 'stitches.config';
 
 const NextPageStyled = styled('div', {
-  backgroundColor: '$special2_900_a90',
-  '&::before': {
-    content: '""',
-    position: 'fixed',
-    inset: 0,
-    background: 'url(/body-bg.webp)',
-    zIndex: '-1',
-    filter: 'blur(2px)',
-  },
+	backgroundColor: '$special2_900_a90',
+	'&::before': {
+		content: '""',
+		position: 'fixed',
+		inset: 0,
+		background: 'url(/body-bg.webp)',
+		zIndex: '-1',
+		filter: 'blur(2px)',
+	},
 });
 
 const HomePage: NextPage = () => {
-  return (
-    <ScrollArea>
-      <SEO
-        title="Philip Perez Castro"
-        siteTitle="Frontend developer"
-        description="Aquí puedes encontrar información sobre Philip Perez Castro"
-      />
+	return (
+		<ScrollArea>
+			<SEO
+				title="Philip Perez Castro"
+				siteTitle="Frontend developer"
+				description="Philip Perez Castro | Frontend developer"
+			/>
 
-      <NextPageStyled>
-        <Navbar />
+			<NextPageStyled>
+				<Navbar />
 
-        <Box
-          as="main"
-          css={{
-            maxWidth: '$max-w-screen-lg',
-            marginInline: 'auto',
-            paddingInline: '$space04',
-            paddingBottom: '$space20',
-            [`& ${Section} + ${Section}`]: { paddingTop: '$space20' },
-            '@lg': {
-              paddingInline: '$space00',
-              [`& ${Section} + ${Section}`]: { paddingTop: '$space30' },
-            },
-          }}
-        >
-          <Hero id="hero" />
+				<Box
+					as="main"
+					css={{
+						maxWidth: '$max-w-screen-lg',
+						marginInline: 'auto',
+						paddingInline: '$space04',
+						paddingBottom: '$space20',
+						[`& ${Section} + ${Section}`]: {
+							paddingTop: '$space20',
+						},
+						'@lg': {
+							paddingInline: '$space00',
+							[`& ${Section} + ${Section}`]: {
+								paddingTop: '$space30',
+							},
+						},
+					}}
+				>
+					<Hero id="hero" />
 
-          <AboutMe id="about-me" />
+					<AboutMe id="about-me" />
 
-          <Skills id="skills" />
+					<Skills id="skills" />
 
-          <Projects id="projects" />
-        </Box>
+					<Projects id="projects" />
+				</Box>
 
-        <Box as="picture" css={{ display: 'flex' }}>
-          <Image
-            src="/playful-cat.svg"
-            width="0"
-            height="0"
-            alt="playful cat"
-            placeholder="blur"
-            blurDataURL={rgbDataURL(43, 432, 21)}
-            css={{
-              width: 'auto',
-              height: 'auto',
-              marginInline: 'auto',
-              '@md': { maxWidth: '$max-w-md' },
-            }}
-          />
-        </Box>
+				<Box as="picture" css={{ display: 'flex' }}>
+					<Image
+						src="/playful-cat.svg"
+						width="0"
+						height="0"
+						alt="playful cat"
+						placeholder="blur"
+						blurDataURL={rgbDataURL(43, 432, 21)}
+						css={{
+							width: 'auto',
+							height: 'auto',
+							marginInline: 'auto',
+							'@md': { maxWidth: '$max-w-md' },
+						}}
+					/>
+				</Box>
 
-        <Footer />
-      </NextPageStyled>
-    </ScrollArea>
-  );
+				<Footer />
+			</NextPageStyled>
+		</ScrollArea>
+	);
 };
 
 export default HomePage;

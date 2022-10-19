@@ -20,7 +20,7 @@ export const Projects: React.FC<ProjectsProps> = (props) => {
 	return (
 		<Section
 			{...props}
-			animate={{ opacity: 0, y: 50 }}
+			animate={{ opacity: 0, y: 10 }}
 			transition={{ duration: 2, type: 'spring' }}
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.1 }}
