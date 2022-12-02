@@ -109,4 +109,3 @@ export const space = Object.fromEntries(
 ) as unknown as {
 	[k in SpaceScaleWithPrefix]: string;
 };
-

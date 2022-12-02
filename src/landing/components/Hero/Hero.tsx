@@ -32,18 +32,13 @@ export const Hero: React.FC<HeroProps> = (props) => {
 				<Heading css={{ maxWidth: '$max-w-3xl' }}>
 					<Text fontStyle="L1">Bienvenido, soy</Text>
 
-					<Heading
-						fontStyle="L2"
-						as="div"
-						css={{ marginBlock: '$space01' }}
-					>
+					<Heading fontStyle="L2" as="div" css={{ marginBlock: '$space01' }}>
 						Philip Perez Castro,
 					</Heading>
 
 					<Text fontStyle="L1">
-						React developer en entrenamiento, 📚 autodidacta,
-						principalmente interesado en ampliar mis conocimientos
-						en <strong>JavaScript</strong> y{' '}
+						Trainee React developer, 📚 autodidacta, interesado en ampliar mis
+						conocimientos en <strong>JavaScript</strong> y{' '}
 						<strong>Typescript</strong>.{' '}
 					</Text>
 				</Heading>
@@ -91,8 +86,8 @@ export const Hero: React.FC<HeroProps> = (props) => {
 					priority
 					src="/dev_programming.webp"
 					alt="developer programming"
-					width="2459"
-					height="1788"
+					width="737"
+					height="536"
 					css={{
 						margin: 'auto',
 						height: 'auto',

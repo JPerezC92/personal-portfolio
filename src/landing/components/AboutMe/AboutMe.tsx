@@ -1,4 +1,3 @@
-import { useInView } from 'framer-motion';
 import React from 'react';
 import { SectionTitle } from 'src/landing/components/SectionTitle';
 import { Box } from 'src/shared/components/Box';
@@ -69,18 +68,18 @@ export const AboutMe: React.FC<AboutMeProps> = (props) => {
 					}}
 				>
 					<Text as="p" fontStyle="L1">
-						Soy desarrollador orientado a front-end, autodidacta,
-						apasionado por la programación y la tecnología,
-						procedente de Ancash, <strong>Perú</strong>. Comencé
-						estudiando programación por cuenta propia un par de
-						meses después ingresé a estudiar en{' '}
-						<strong>SENATI</strong> la carrera de desarrollo de
-						software (2019-2021).
+						Soy un Desarrollador Frontend autodidacta con una gran pasión por la
+						programación y la tecnología. Originario de Ancash,{' '}
+						<strong>Perú</strong>, comencé mi carrera de aprendizaje de la
+						programación por cuenta propia y luego ingresé a estudiar en la
+						carrera de Desarrollo de Software en <strong>SENATI</strong>
+						(2019-2021). Mi objetivo principal es convertirme en un
+						Desarrollador Frontend destacado.
 					</Text>
 
 					<Text as="p" fontStyle="L1">
-						Aunque mi meta es ser un desarrollador front-ent también
-						he indagado un poco sobre el back-end.
+						Aunque mi meta es ser un desarrollador front-ent también he indagado
+						un poco sobre el back-end.
 					</Text>
 
 					<Text as="p" fontStyle="L1">
