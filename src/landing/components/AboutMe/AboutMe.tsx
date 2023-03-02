@@ -23,7 +23,7 @@ export const AboutMe: React.FC<AboutMeProps> = (props) => {
 			<Box
 				css={{
 					display: 'grid',
-					maxWidth: '$max-w-3xl',
+					maxWidth: '$max-w-4xl',
 					width: '100%',
 					'@md': {
 						marginInline: 'auto',
@@ -68,24 +68,22 @@ export const AboutMe: React.FC<AboutMeProps> = (props) => {
 					}}
 				>
 					<Text as="p" fontStyle="L1">
-						Soy un Desarrollador Frontend autodidacta con una gran pasión por la
+						Soy un desarrollador autodidacta con una gran pasión por la
 						programación y la tecnología. Originario de Ancash,{' '}
-						<strong>Perú</strong>, comencé mi carrera de aprendizaje de la
-						programación por cuenta propia y luego ingresé a estudiar en la
-						carrera de Desarrollo de Software en <strong>SENATI</strong>
-						(2019-2021). Mi objetivo principal es convertirme en un
-						Desarrollador Frontend destacado.
-					</Text>
-
-					<Text as="p" fontStyle="L1">
-						Aunque mi meta es ser un desarrollador front-ent también he indagado
-						un poco sobre el back-end.
+						<strong>Perú</strong>, comencé mi carrera de aprendizaje de
+						programación de manera autónoma y luego continué mis estudios en la
+						carrera de Desarrollo de Software en <strong>SENATI</strong>{' '}
+						(2019-2021). Me gusta trabajar en diferentes proyectos y tengo
+						experiencia en desarrollo frontend y backend. Mi objetivo principal
+						es seguir aprendiendo y creciendo como desarrollador para poder
+						aportar soluciones innovadoras y de alta calidad a los proyectos en
+						los que participe.
 					</Text>
 
 					<Text as="p" fontStyle="L1">
 						Actualmente, estoy reforzando mis conocimientos en{' '}
 						<strong>CSS</strong> y aprendiendo a usar la biblioteca{' '}
-						<strong>Stitches</strong>.
+						<strong>MDX</strong>.
 					</Text>
 				</Box>
 			</Box>

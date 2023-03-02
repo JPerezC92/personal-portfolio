@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = (props) => {
 					</Heading>
 
 					<Text fontStyle="L1">
-						Trainee React developer, 📚 autodidacta, interesado en ampliar mis
+						Trainee developer, 📚 autodidacta, interesado en ampliar mis
 						conocimientos en <strong>JavaScript</strong> y{' '}
 						<strong>Typescript</strong>.{' '}
 					</Text>

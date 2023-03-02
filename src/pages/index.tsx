@@ -30,8 +30,8 @@ const HomePage: NextPage = () => {
 		<ScrollArea>
 			<SEO
 				title="Philip Perez Castro"
-				siteTitle="Frontend developer"
-				description="Philip Perez Castro | Frontend developer"
+				siteTitle="Software developer"
+				description="Philip Perez Castro | Software developer"
 			/>
 
 			<NextPageStyled>
