@@ -1,33 +1,27 @@
 {
-	"name": "personal-portfolio",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"@radix-ui/react-scroll-area": "1.0.0",
-		"@stitches/react": "1.2.8",
-		"@unocss/reset": "0.45.26",
-		"framer-motion": "7.5.4",
-		"hex-rgb": "5.0.0",
-		"next": "12.3.1",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"react-icons": "4.4.0",
-		"smart-swatch": "1.1.0"
-	},
-	"devDependencies": {
-		"@types/node": "18.7.23",
-		"@types/react": "18.0.21",
-		"@types/react-dom": "18.0.6",
-		"eslint": "8.24.0",
-		"eslint-config-next": "12.3.1",
-		"eslint-config-prettier": "8.5.0",
-		"reactcci": "1.11.0",
-		"typescript": "4.8.4"
-	}
+  "name": "philip-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "20.2.3",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "@vanilla-extract/css": "1.11.0",
+    "@vanilla-extract/recipes": "0.4.0",
+    "clsx": "1.2.1",
+    "eslint": "8.41.0",
+    "eslint-config-next": "13.4.3",
+    "framer-motion": "10.12.12",
+    "next": "13.4.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sharp": "0.32.1",
+    "typescript": "5.0.4"
+  }
 }
