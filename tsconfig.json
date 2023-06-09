@@ -21,7 +21,10 @@
 			}
 		],
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/projects/*": ["src/projects/*"],
+			"@/theme/*": ["src/theme/*"],
+			"@/shared/*": ["src/shared/*"],
+			"@/*": ["*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
