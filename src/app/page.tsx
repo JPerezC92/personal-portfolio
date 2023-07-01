@@ -107,7 +107,16 @@ export default function Home() {
 						</Heading>
 
 						<div className='flex gap-2'>
-							<Button size='md'>CV</Button>
+							<Button
+								href='/curriculum.pdf'
+								size='md'
+								component='a'
+								title='Curriculum'
+								download='Philip Perez Castro Curriculum'
+								target='_blank'
+							>
+								CV
+							</Button>
 
 							{socialList?.map(({ link, icon: Icon, title }) => (
 								<IconButton
