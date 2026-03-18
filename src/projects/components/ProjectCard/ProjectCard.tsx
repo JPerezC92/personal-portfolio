@@ -1,17 +1,27 @@
-import clsx from 'clsx';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { RiGlobalFill } from 'react-icons/ri';
 import { TbApi } from 'react-icons/tb';
 
-import { Project } from '@/projects/models';
-import { Heading, Hr, IconButton, Text } from '@/shared/components';
-import { rgbDataURL } from '@/shared/utils';
+import { Project } from '@/projects/models/project.model';
+import { Heading } from '@/shared/components/Heading/Heading';
+import { Text } from '@/shared/components/Text/Text';
+import { Button } from '@/shared/components/ui/button';
+import { Separator } from '@/shared/components/ui/separator';
+import { cn } from '@/shared/utils/cn';
+import { rgbDataURL } from '@/shared/utils/rgbDataURL';
 
 type ProjectCardProps = {
 	project: Project;
 } & React.ComponentProps<'div'>;
+
+const linkIcons = {
+	web: RiGlobalFill,
+	repositorio: FaGithub,
+	api: TbApi,
+} as const;
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
 	project,
@@ -19,11 +29,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
 	return (
 		<div
-			className={clsx([
+			className={cn(
 				'relative bg-primary-400/10 grid grid-rows-[auto_1fr] border border-primary-400/50 rounded-xl overflow-hidden shadow-[0_0_9px_2px] shadow-primary-500/30',
 				'[&:hover_>_picture::after]:bg-transparent',
 				'md:grid md:grid-cols-[0.46fr_0.54fr] md:[&:hover_>_p]:top-0',
-			])}
+			)}
 			{...props}
 		>
 			<Text className='absolute top-0 md:-top-8 right-0 z-[2] bg-accent-800 px-4 capitalize rounded-bl-md border-b border-l border-secondary-400 transition-all duration-300'>
@@ -31,11 +41,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 			</Text>
 
 			<picture
-				className={clsx([
+				className={cn(
 					'border-b border-primary-400/50 relative',
 					'after:bg-primary-900/50 after:absolute after:inset-0 after:transition-all after:duration-300',
 					'md:border-b-0 md:border-r md:border-primary-400/50',
-				])}
+				)}
 			>
 				<Image
 					priority
@@ -45,9 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 					height={project.image.height}
 					placeholder='blur'
 					blurDataURL={rgbDataURL(24, 58, 63)}
-					className={clsx([
-						'aspect-[16/12] object-cover object-center w-full h-full lg:max-h-none transition-all duration-300',
-					])}
+					className='aspect-[16/12] object-cover object-center w-full h-full lg:max-h-none transition-all duration-300'
 				/>
 			</picture>
 
@@ -60,58 +68,38 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 					{project.title}
 				</Heading>
 
-				<Hr className='mb-8 mt-4 -mx-4' />
+				<Separator className='mb-8 mt-4 -mx-4' />
 
 				<ul className='mb-4 flex gap-x-2'>
-					{project.linkList.map(({ name, url }) =>
-						name === 'web' ? (
-							<IconButton
-								key={url}
-								title={name}
-								component='a'
-								variant='ghost'
-								colorScheme='secondary'
-								className='rounded-full bg-secondary-500/10'
-								icon={<RiGlobalFill />}
-								href={url}
-								target='_blank'
-							/>
-						) : name === 'repositorio' ? (
-							<IconButton
-								key={url}
-								title={name}
-								component='a'
-								variant='ghost'
-								colorScheme='secondary'
-								className='rounded-full bg-secondary-500/10'
-								icon={<FaGithub />}
-								href={url}
-								target='_blank'
-							/>
-						) : name === 'api' ? (
-							<IconButton
-								key={url}
-								title={name}
-								component='a'
-								variant='ghost'
-								colorScheme='secondary'
-								className='rounded-full bg-secondary-500/10'
-								icon={<TbApi />}
-								href={url}
-								target='_blank'
-							/>
-						) : null,
-					)}
+					{project.linkList.map(({ name, url }) => {
+						const Icon = linkIcons[name];
+						if (!Icon) return null;
+						return (
+							<li key={url}>
+								<Button
+									asChild
+									variant='ghost'
+									size='icon'
+									colorScheme='secondary'
+									className='rounded-full bg-secondary-500/10'
+								>
+									<Link href={url} target='_blank' title={name}>
+										<Icon />
+									</Link>
+								</Button>
+							</li>
+						);
+					})}
 				</ul>
 
 				<Text
 					component='div'
-					className={clsx([
+					className={cn(
 						'mb-8',
 						'sm:mb-0',
 						'md:h-0 md:opacity-0',
 						'lg:mb-8 lg:h-auto lg:opacity-100',
-					])}
+					)}
 				>
 					{project.description}
 				</Text>

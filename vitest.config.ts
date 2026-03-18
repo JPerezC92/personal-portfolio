@@ -2,7 +2,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { configDefaults, defineConfig } from 'vitest/config';
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
 	test: {
@@ -12,20 +11,16 @@ export default defineConfig({
 		exclude: [...configDefaults.exclude, '**/old/**'],
 		alias: [
 			{
-				find: '@/book',
-				replacement: path.resolve(__dirname, './src/modules/book'),
+				find: '@/projects',
+				replacement: path.resolve(__dirname, './src/projects'),
 			},
 			{
 				find: '@/theme',
-				replacement: path.resolve(__dirname, './src/modules/theme'),
+				replacement: path.resolve(__dirname, './src/theme'),
 			},
 			{
 				find: '@/shared',
-				replacement: path.resolve(__dirname, './src/modules/shared'),
-			},
-			{
-				find: '@/tests',
-				replacement: path.resolve(__dirname, './__TESTS__'),
+				replacement: path.resolve(__dirname, './src/shared'),
 			},
 			{ find: '@', replacement: path.resolve(__dirname) },
 		],

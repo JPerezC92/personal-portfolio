@@ -1,10 +1,10 @@
 import './global.css';
 
-import clsx from 'clsx';
 import { Metadata } from 'next';
 import { Exo_2 as Exo2 } from 'next/font/google';
 
-import { EnvironmentVariable } from '@/shared/utils';
+import { cn } from '@/shared/utils/cn';
+import { EnvironmentVariable } from '@/shared/utils/envVariables';
 
 const exo2 = Exo2({
 	subsets: ['latin'],
@@ -127,14 +127,14 @@ export default function RootLayout({
 			<html
 				lang='en'
 				data-mode='dark'
-				className={clsx([exo2.variable, '!scroll-smooth'])}
+				className={cn(exo2.variable, '!scroll-smooth')}
 			>
 				<body className='contents'>
 					<div
-						className={clsx([
+						className={cn(
 							'bg-primary-50 dark:bg-primary-950/80',
 							"before:content-[''] before:fixed before:inset-0 before:bg-[url('/body-bg.webp')] before:-z-[1] before:blur-[2px] before:bg-cover before:bg-center before:rotate-180",
-						])}
+						)}
 					>
 						{children}
 					</div>
