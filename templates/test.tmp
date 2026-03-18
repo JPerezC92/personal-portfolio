@@ -1,7 +1,8 @@
-import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 
 describe('#NAME#', () => {
-    it('case', () => {
-
-    });
+	it('renders', () => {
+		expect(true).toBe(true);
+	});
 });

@@ -1,0 +1,8 @@
+import { cva, type VariantProps } from 'class-variance-authority';
+
+export const #COMPONENT_FILE_PREFIX#Variants = cva('', {
+	variants: {},
+	defaultVariants: {},
+});
+
+export type #NAME#Variants = VariantProps<typeof #COMPONENT_FILE_PREFIX#Variants>;

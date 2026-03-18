@@ -137,6 +137,11 @@
 }
 
 @layer base {
+	button:not(:disabled),
+	a {
+		cursor: pointer;
+	}
+
 	:root {
 		--background: 168 100% 92%;
 		--foreground: 165 100% 5%;
