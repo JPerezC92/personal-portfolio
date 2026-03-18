@@ -1,7 +1,6 @@
-import { tv, VariantProps } from 'tailwind-variants';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-export const IconCss = tv({
-	base: 'inline-block align-middle',
+export const IconCss = cva('inline-block align-middle', {
 	variants: {
 		size: {
 			xs: 'text-lg md:text-xl',

@@ -1,4 +1,4 @@
-import { EnvironmentVariable } from '@/shared/utils';
+import { EnvironmentVariable } from '@/shared/utils/envVariables';
 
 const home = EnvironmentVariable.WEB_URL;
 

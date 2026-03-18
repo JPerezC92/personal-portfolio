@@ -1,7 +1,6 @@
-import { tv, VariantProps } from 'tailwind-variants';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-export const textVariants = tv({
-	base: 'dark:text-sepia-100 font-exo2 tracking-wide',
+export const textVariants = cva('dark:text-sepia-100 font-exo2 tracking-wide', {
 	variants: {
 		fontSize: {
 			xs: 'text-xs md:text-sm font-semibold leading-6',

@@ -1,5 +1,5 @@
-import { Project } from '@/projects/models';
-import { Highlight } from '@/shared/components';
+import { Project } from '@/projects/models/project.model';
+import { Highlight } from '@/shared/components/Highlight/Highlight';
 
 export const projectList: Project[] = [
 	{

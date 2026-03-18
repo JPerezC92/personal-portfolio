@@ -1,11 +1,15 @@
 'use client';
+import Link from 'next/link';
 import React from 'react';
 import { FaHamburger } from 'react-icons/fa';
 
-import { Button, Heading, IconButton, Motion } from '@/shared/components';
-import { EnumType, EnumTypeInfer } from '@/shared/utils';
+import { Heading } from '@/shared/components/Heading/Heading';
+import { Motion } from '@/shared/components/Motion/Motion';
+import { Button } from '@/shared/components/ui/button';
+import { cn } from '@/shared/utils/cn';
+import { EnumType, EnumTypeInfer } from '@/shared/utils/enumType';
 
-import * as AppBarCss from './AppBar.css';
+import { headerBase, headerWrapper } from './AppBar.css';
 
 type AppBarProps = {
 	sections: { title: string; link: string }[];
@@ -20,8 +24,6 @@ export const AppBar: React.FC<AppBarProps> = ({ className, sections }) => {
 		NavState.values.collapsed,
 	);
 
-	const headerCss = AppBarCss.header();
-
 	function toggleNav() {
 		setNavState(state =>
 			state === NavState.values.active
@@ -31,14 +33,16 @@ export const AppBar: React.FC<AppBarProps> = ({ className, sections }) => {
 	}
 
 	return (
-		<div className={headerCss.wrapper({ className })}>
-			<header className={headerCss.base()}>
-				<IconButton
-					icon={<FaHamburger />}
+		<div className={cn(headerWrapper, className)}>
+			<header className={headerBase}>
+				<Button
 					variant='ghost'
+					size='icon'
 					onClick={toggleNav}
 					className='mr-4 md:hidden'
-				/>
+				>
+					<FaHamburger />
+				</Button>
 
 				<div>
 					<Heading component='span' fontSize='2xl' className='font-black'>
@@ -70,16 +74,15 @@ export const AppBar: React.FC<AppBarProps> = ({ className, sections }) => {
 					<nav className='flex flex-col md:flex-row justify-between items-center w-full md:w-auto md:ml-auto gap-x-4 gap-y-2'>
 						{sections.map(section => (
 							<Button
-								onClick={() => setNavState(NavState.values.collapsed)}
-								className='capitalize'
 								key={section.title}
+								asChild
 								colorScheme='primary'
-								component='a'
-								href={section.link}
 								size='md'
 								variant='link'
+								className='capitalize'
+								onClick={() => setNavState(NavState.values.collapsed)}
 							>
-								{section.title}
+								<Link href={section.link}>{section.title}</Link>
 							</Button>
 						))}
 					</nav>

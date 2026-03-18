@@ -1,22 +1,24 @@
-import clsx from 'clsx';
 import { MotionProps } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
-import { ProjectCard } from '@/projects/components';
-import {
-	Button,
-	Heading,
-	Highlight,
-	Hr,
-	Icon,
-	IconButton,
-	Motion,
-	Text,
-} from '@/shared/components';
-import { AppBar } from '@/shared/components/AppBar';
-import { projectList, skillList, socialList } from '@/shared/data';
-import { rgbDataURL, sectionList, webRoutes } from '@/shared/utils';
+import { ProjectCard } from '@/projects/components/ProjectCard/ProjectCard';
+import { AppBar } from '@/shared/components/AppBar/AppBar';
+import { Heading } from '@/shared/components/Heading/Heading';
+import { Highlight } from '@/shared/components/Highlight/Highlight';
+import { Icon } from '@/shared/components/Icon/Icon';
+import { Motion } from '@/shared/components/Motion/Motion';
+import { Text } from '@/shared/components/Text/Text';
+import { Button } from '@/shared/components/ui/button';
+import { Separator } from '@/shared/components/ui/separator';
+import { projectList } from '@/shared/data/projectList';
+import { skillList } from '@/shared/data/skills';
+import { socialList } from '@/shared/data/socialList';
+import { cn } from '@/shared/utils/cn';
+import { rgbDataURL } from '@/shared/utils/rgbDataURL';
+import { sectionList } from '@/shared/utils/sections';
+import { webRoutes } from '@/shared/utils/web.routes';
 
 const Section = ({
 	children,
@@ -107,26 +109,29 @@ export default function Home() {
 						</Heading>
 
 						<div className='flex gap-2'>
-							<Button
-								href='/curriculum.pdf'
-								size='md'
-								component='a'
-								title='Curriculum'
-								download='Philip Perez Castro Curriculum'
-								target='_blank'
-							>
-								CV
+							<Button asChild size='md'>
+								<a
+									href='/curriculum.pdf'
+									title='Curriculum'
+									download='Philip Perez Castro Curriculum'
+									target='_blank'
+								>
+									CV
+								</a>
 							</Button>
 
-							{socialList?.map(({ link, icon: Icon, title }) => (
-								<IconButton
+							{socialList?.map(({ link, icon: SocialIcon, title }) => (
+								<Button
 									key={title}
-									href={link}
-									component='a'
+									asChild
 									colorScheme='secondary'
-									icon={<Icon />}
 									variant='outline'
-								/>
+									size='icon'
+								>
+									<Link href={link}>
+										<SocialIcon />
+									</Link>
+								</Button>
 							))}
 						</div>
 					</Motion>
@@ -137,14 +142,14 @@ export default function Home() {
 						Sobre mi
 					</Heading>
 
-					<Hr className='mt-4 mb-16' />
+					<Separator className='mt-4 mb-16' />
 
 					<div className='flex gap-y-8 flex-col md:flex-row justify-center gap-x-8'>
 						<div
-							className={clsx([
+							className={cn(
 								'bg-sepia-base rounded-md p-4 mx-auto max-w-[250px]',
 								'md:max-w-[280px] md:mx-0',
-							])}
+							)}
 						>
 							<Image
 								src='/personal-photo.webp'
@@ -181,14 +186,14 @@ export default function Home() {
 						Conocimientos
 					</Heading>
 
-					<Hr className='mt-4 mb-16' />
+					<Separator className='mt-4 mb-16' />
 
 					<ul
-						className={clsx([
+						className={cn(
 							'flex flex-wrap justify-evenly gap-x-12 gap-y-8 items-center transition-all duration-300',
 							'md:gap-x-24',
 							'xl:gap-x-10 xl:justify-between',
-						])}
+						)}
 					>
 						{skillList.map(({ description, icon: Ico, color }) => (
 							<li
@@ -210,7 +215,7 @@ export default function Home() {
 					<Heading component='h2' fontSize='3xl'>
 						Proyectos
 					</Heading>
-					<Hr className='mt-4 mb-16' />
+					<Separator className='mt-4 mb-16' />
 					<ul className='flex flex-col gap-8'>
 						{projectList.map(p => (
 							<li key={p.title} className='contents'>
@@ -234,15 +239,18 @@ export default function Home() {
 
 			<footer className='bg-primary-700/20 border-primary-400/50 border-y py-4'>
 				<ul className='flex gap-x-4 justify-center'>
-					{socialList?.map(({ link, icon: Icon, title }) => (
+					{socialList?.map(({ link, icon: SocialIcon, title }) => (
 						<li key={title} className='contents'>
-							<IconButton
-								href={link}
-								component='a'
+							<Button
+								asChild
 								colorScheme='secondary'
-								icon={<Icon />}
 								variant='outline'
-							/>
+								size='icon'
+							>
+								<Link href={link}>
+									<SocialIcon />
+								</Link>
+							</Button>
 						</li>
 					))}
 				</ul>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { cn } from '@/shared/utils/cn';
+
 import * as IconCss from './Icon.css';
 
 type IconProps = {
@@ -14,7 +16,7 @@ export const Icon: React.FC<IconProps> = ({
 	...props
 }) => {
 	return (
-		<i className={IconCss.IconCss({ className, size })} {...props}>
+		<i className={cn(IconCss.IconCss({ size }), className)} {...props}>
 			{icon}
 		</i>
 	);
