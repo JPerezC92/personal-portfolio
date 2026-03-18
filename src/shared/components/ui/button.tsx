@@ -9,8 +9,8 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				solid: 'text-neutral-900 hover:shadow-sm',
-				outline: 'hover:shadow-sm',
+				solid: 'text-neutral-900 hover:shadow-xs',
+				outline: 'hover:shadow-xs',
 				ghost: 'border-transparent',
 				link: 'border-transparent relative before:content-[""] before:absolute before:inset-0 before:border-b before:bottom-1 before:scale-x-0 before:hover:scale-x-100 before:mx-auto overflow-hidden before:duration-300 before:ease-in-out before:transition-all px-0',
 			},
@@ -22,7 +22,7 @@ const buttonVariants = cva(
 				sm: 'px-3 py-1 text-sm',
 				md: 'px-4 py-1 text-base md:text-lg',
 				lg: 'px-6 py-2 text-lg',
-				icon: 'p-2 aspect-square shadow',
+				icon: 'p-2 aspect-square shadow-sm',
 			},
 		},
 		compoundVariants: [

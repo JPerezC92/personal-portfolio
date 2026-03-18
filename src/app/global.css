@@ -1,6 +1,140 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-mode='dark'], [data-mode='dark'] *));
+@custom-variant sepia (&:where([data-mode='sepia'], [data-mode='sepia'] *));
+
+@theme {
+	/* Custom palette — primary (teal) */
+	--color-primary-base: #20e4c2;
+	--color-primary-50: #dafffa;
+	--color-primary-100: #b3f8ec;
+	--color-primary-200: #88f2e0;
+	--color-primary-300: #5decd3;
+	--color-primary-400: #32e6c7;
+	--color-primary-500: #19cdae;
+	--color-primary-600: #089f87;
+	--color-primary-700: #007260;
+	--color-primary-800: #00453a;
+	--color-primary-900: #001913;
+	--color-primary-950: #000813;
+
+	/* Custom palette — secondary (orange) */
+	--color-secondary-base: #ff8a5b;
+	--color-secondary-50: #ffebde;
+	--color-secondary-100: #ffc7b0;
+	--color-secondary-200: #ffa47f;
+	--color-secondary-300: #ff804d;
+	--color-secondary-400: #fe5c1b;
+	--color-secondary-500: #e54302;
+	--color-secondary-600: #b33300;
+	--color-secondary-700: #812400;
+	--color-secondary-800: #4f1400;
+	--color-secondary-900: #200400;
+
+	/* Custom palette — sepia */
+	--color-sepia-base: #e9d8a5;
+	--color-sepia-50: #fdf6e3;
+	--color-sepia-100: #f1e4bf;
+	--color-sepia-200: #e6d399;
+	--color-sepia-300: #dcc171;
+	--color-sepia-400: #d2af4a;
+	--color-sepia-500: #b89631;
+	--color-sepia-600: #8f7425;
+	--color-sepia-700: #665319;
+	--color-sepia-800: #3d320c;
+	--color-sepia-900: #161100;
+
+	/* Custom palette — accent (purple) */
+	--color-accent-base: #8b26c0;
+	--color-accent-50: #f9e8ff;
+	--color-accent-100: #e3bef6;
+	--color-accent-200: #ce94ec;
+	--color-accent-300: #b86ae3;
+	--color-accent-400: #a43fd9;
+	--color-accent-500: #8b26c0;
+	--color-accent-600: #6c1c96;
+	--color-accent-700: #4e136c;
+	--color-accent-800: #2f0b43;
+	--color-accent-900: #12011b;
+
+	/* Custom palette — success */
+	--color-success-base: #2ef09f;
+	--color-success-50: #dcfff2;
+	--color-success-100: #b2fbdd;
+	--color-success-200: #84f7c7;
+	--color-success-300: #55f3b3;
+	--color-success-400: #29f09d;
+	--color-success-500: #0fd683;
+	--color-success-600: #02a765;
+	--color-success-700: #007748;
+	--color-success-800: #00482a;
+	--color-success-900: #001a0b;
+
+	/* Custom palette — info */
+	--color-info-base: #20a4f3;
+	--color-info-50: #dcf7ff;
+	--color-info-100: #afe2ff;
+	--color-info-200: #82cefa;
+	--color-info-300: #53baf7;
+	--color-info-400: #25a6f3;
+	--color-info-500: #0c8dda;
+	--color-info-600: #006daa;
+	--color-info-700: #004e7b;
+	--color-info-800: #002f4d;
+	--color-info-900: #00121f;
+
+	/* Custom palette — warning */
+	--color-warning-base: #ff9f1c;
+	--color-warning-50: #fff3da;
+	--color-warning-100: #ffdfae;
+	--color-warning-200: #ffc97d;
+	--color-warning-300: #ffb44b;
+	--color-warning-400: #ff9e1a;
+	--color-warning-500: #e68400;
+	--color-warning-600: #b36700;
+	--color-warning-700: #814a00;
+	--color-warning-800: #4f2b00;
+	--color-warning-900: #1f0d00;
+
+	/* Custom palette — danger */
+	--color-danger-base: #e71d36;
+	--color-danger-50: #ffe4e8;
+	--color-danger-100: #fdb8c0;
+	--color-danger-200: #f58b97;
+	--color-danger-300: #ef5d6f;
+	--color-danger-400: #e93046;
+	--color-danger-500: #cf162d;
+	--color-danger-600: #a20e22;
+	--color-danger-700: #740818;
+	--color-danger-800: #48020d;
+	--color-danger-900: #1f0003;
+
+	/* shadcn semantic tokens */
+	--color-background: hsl(var(--background));
+	--color-foreground: hsl(var(--foreground));
+	--color-card: hsl(var(--card));
+	--color-card-foreground: hsl(var(--card-foreground));
+	--color-popover: hsl(var(--popover));
+	--color-popover-foreground: hsl(var(--popover-foreground));
+	--color-muted: hsl(var(--muted));
+	--color-muted-foreground: hsl(var(--muted-foreground));
+	--color-destructive: hsl(var(--destructive));
+	--color-destructive-foreground: hsl(var(--destructive-foreground));
+	--color-border: hsl(var(--border));
+	--color-input: hsl(var(--input));
+	--color-ring: hsl(var(--ring));
+
+	/* Custom breakpoint */
+	--breakpoint-3xl: 1920px;
+
+	/* Custom font */
+	--font-exo2: var(--font-exo-2);
+
+	/* Border radius */
+	--radius-lg: var(--radius);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-sm: calc(var(--radius) - 4px);
+}
 
 @layer base {
 	:root {

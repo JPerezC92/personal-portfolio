@@ -22,7 +22,7 @@ describe('Button', () => {
 		render(<Button variant='outline'>Outline</Button>);
 		const button = screen.getByRole('button', { name: 'Outline' });
 		expect(button.className).toContain('border-primary-400');
-		expect(button.className).toContain('hover:shadow-sm');
+		expect(button.className).toContain('hover:shadow-xs');
 	});
 
 	it('renders ghost variant', () => {
