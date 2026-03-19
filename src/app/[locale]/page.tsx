@@ -1,6 +1,9 @@
+'use client';
+
 import { MotionProps } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 
 import { ProjectCard } from '@/projects/components/ProjectCard/ProjectCard';
@@ -12,9 +15,9 @@ import { Motion } from '@/shared/components/Motion/Motion';
 import { Text } from '@/shared/components/Text/Text';
 import { Button } from '@/shared/components/ui/button';
 import { Separator } from '@/shared/components/ui/separator';
-import { projectList } from '@/shared/data/projectList';
 import { skillList } from '@/shared/data/skills';
 import { socialList } from '@/shared/data/socialList';
+import { useProjectList } from '@/shared/data/useProjectList';
 import { cn } from '@/shared/utils/cn';
 import { rgbDataURL } from '@/shared/utils/rgbDataURL';
 import { sectionList } from '@/shared/utils/sections';
@@ -45,20 +48,23 @@ const Section = ({
 };
 
 export default function Home() {
+	const t = useTranslations();
+	const projectList = useProjectList();
+
 	return (
 		<>
 			<AppBar
 				sections={[
 					{
-						title: 'Sobre mí',
+						title: t('Nav.aboutMe'),
 						link: webRoutes.homeSection(sectionList.values.sobre_mi),
 					},
 					{
-						title: 'Conocimientos',
+						title: t('Nav.skills'),
 						link: webRoutes.homeSection(sectionList.values.conocimientos),
 					},
 					{
-						title: 'Proyectos',
+						title: t('Nav.projects'),
 						link: webRoutes.homeSection(sectionList.values.proyectos),
 					},
 				]}
@@ -96,15 +102,15 @@ export default function Home() {
 						transition={{ duration: 2, type: 'spring' }}
 					>
 						<Heading component='h1' fontSize='md' className='mb-4 md:mb-8'>
-							<Text className='normal-case'>Bienvenido a mi perfil, soy</Text>
+							<Text className='normal-case'>{t('Hero.greeting')}</Text>
 							<Heading component='div' fontSize='5xl' className='my-2'>
-								Philip Perez Castro,
+								{t('Hero.name')}
 							</Heading>{' '}
 							<Text className='normal-case'>
-								un apasionado <Highlight>Desarrollador Junior</Highlight>{' '}
-								autodidacta. Mi objetivo actual es profundizar mis conocimientos
-								en <Highlight>Typescript</Highlight> y seguir creciendo
-								profesionalmente.
+								{t.rich('Hero.headline', {
+									juniorDev: (chunks) => <Highlight>{chunks}</Highlight>,
+									typescript: (chunks) => <Highlight>{chunks}</Highlight>,
+								})}
 							</Text>
 						</Heading>
 
@@ -116,7 +122,7 @@ export default function Home() {
 									download='Philip Perez Castro Curriculum'
 									target='_blank'
 								>
-									CV
+									{t('Hero.cv')}
 								</a>
 							</Button>
 
@@ -139,7 +145,7 @@ export default function Home() {
 
 				<Section id={sectionList.values.sobre_mi}>
 					<Heading component='h2' fontSize='3xl'>
-						Sobre mi
+						{t('About.title')}
 					</Heading>
 
 					<Separator className='mt-4 mb-16' />
@@ -154,7 +160,7 @@ export default function Home() {
 							<Image
 								src='/personal-photo.webp'
 								className='bg-sepia-base rounded-md'
-								alt='Phili Perez Castro'
+								alt='Philip Perez Castro'
 								width={600}
 								height={800}
 							/>
@@ -162,28 +168,23 @@ export default function Home() {
 
 						<Text component='div' className='max-w-md self-center space-y-4'>
 							<Text>
-								Soy un apasionado desarrollador autodidacta con una gran pasión
-								por la programación y la tecnología. Nací en{' '}
-								<Highlight>Ancash, Perú</Highlight>, he construido mi carrera de
-								manera autónoma y también he continuado mis estudios en
-								Desarrollo de Software en <Highlight>SENATI</Highlight>{' '}
-								<span className='whitespace-nowrap'>(2019-2021)</span>. Disfruto
-								trabajando en equipo y tengo experiencia tanto en desarrollo
-								frontend como backend.
+								{t.rich('About.bio1', {
+									location: (chunks) => <Highlight>{chunks}</Highlight>,
+									school: (chunks) => <Highlight>{chunks}</Highlight>,
+									years: () => (
+										<span className='whitespace-nowrap'>(2019-2021)</span>
+									),
+								})}
 							</Text>
 
-							<Text>
-								Mi principal objetivo es seguir aprendiendo y creciendo como
-								desarrollador, para poder aportar soluciones innovadoras y de
-								alta calidad a los proyectos en los que participe.
-							</Text>
+							<Text>{t('About.bio2')}</Text>
 						</Text>
 					</div>
 				</Section>
 
 				<Section id={sectionList.values.conocimientos}>
 					<Heading component='h2' fontSize='3xl'>
-						Conocimientos
+						{t('Skills.title')}
 					</Heading>
 
 					<Separator className='mt-4 mb-16' />
@@ -213,11 +214,11 @@ export default function Home() {
 
 				<Section id={sectionList.values.proyectos} viewportMount={0.1}>
 					<Heading component='h2' fontSize='3xl'>
-						Proyectos
+						{t('Projects.title')}
 					</Heading>
 					<Separator className='mt-4 mb-16' />
 					<ul className='flex flex-col gap-8'>
-						{projectList.map(p => (
+						{projectList.map((p) => (
 							<li key={p.title} className='contents'>
 								<ProjectCard project={p} />
 							</li>

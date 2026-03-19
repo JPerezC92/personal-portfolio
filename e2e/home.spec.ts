@@ -11,7 +11,7 @@ test.describe('Home page', () => {
 
 	test('displays hero section with name and headline', async ({ page }) => {
 		await expect(page.getByText('Philip Perez Castro,')).toBeVisible();
-		await expect(page.getByText('Desarrollador Junior')).toBeVisible();
+		await expect(page.locator('text=Desarrollador Junior').or(page.locator('text=Junior Developer'))).toBeVisible();
 	});
 
 	test('CV download link has correct href', async ({ page }) => {

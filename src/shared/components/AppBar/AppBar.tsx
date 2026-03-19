@@ -4,6 +4,7 @@ import React from 'react';
 import { FaHamburger } from 'react-icons/fa';
 
 import { Heading } from '@/shared/components/Heading/Heading';
+import { LocaleSwitcher } from '@/shared/components/LocaleSwitcher/LocaleSwitcher';
 import { Motion } from '@/shared/components/Motion/Motion';
 import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
@@ -44,10 +45,11 @@ export const AppBar: React.FC<AppBarProps> = ({ className, sections }) => {
 					<FaHamburger />
 				</Button>
 
-				<div>
+				<div className='flex items-center gap-3'>
 					<Heading component='span' fontSize='2xl' className='font-black'>
 						Philip.
 					</Heading>
+					<LocaleSwitcher />
 				</div>
 
 				<Motion
