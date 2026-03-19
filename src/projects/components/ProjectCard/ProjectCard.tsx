@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { RiGlobalFill } from 'react-icons/ri';
@@ -27,6 +28,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 	project,
 	...props
 }) => {
+	const t = useTranslations('Projects');
 	return (
 		<div
 			className={cn(
@@ -106,7 +108,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
 				<div>
 					<Heading component='h4' fontSize='lg' className='mb-4'>
-						Tecnologías
+						{t('technologies')}
 					</Heading>
 
 					<div className='flex flex-wrap gap-2'>

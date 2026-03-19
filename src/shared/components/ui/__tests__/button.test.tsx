@@ -59,12 +59,12 @@ describe('Button', () => {
 	it('renders as child element with asChild', () => {
 		render(
 			<Button asChild>
-				<a href='/test'>Link</a>
+				<a href='https://example.com'>Link</a>
 			</Button>,
 		);
 		const link = screen.getByRole('link', { name: 'Link' });
 		expect(link).toBeInTheDocument();
-		expect(link).toHaveAttribute('href', '/test');
+		expect(link).toHaveAttribute('href', 'https://example.com');
 		expect(link.className).toContain('inline-flex');
 	});
 

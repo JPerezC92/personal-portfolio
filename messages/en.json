@@ -1,0 +1,34 @@
+{
+	"Metadata": {
+		"title": "Philip Perez Castro | Junior Software Developer",
+		"description": "I'm a passionate Junior Developer specialized in creating digital experiences. I have extensive experience in developing responsive and mobile-optimized websites using HTML5, CSS3, JavaScript, React, and Next.js. I always stay up to date with the latest trends and best practices in frontend development, aiming to deliver innovative and efficient solutions."
+	},
+	"Nav": {
+		"aboutMe": "About me",
+		"skills": "Skills",
+		"projects": "Projects"
+	},
+	"Hero": {
+		"greeting": "Welcome to my profile, I'm",
+		"name": "Philip Perez Castro,",
+		"headline": "a passionate self-taught <juniorDev>Junior Developer</juniorDev>. My current goal is to deepen my knowledge in <typescript>Typescript</typescript> and continue growing professionally.",
+		"cv": "CV"
+	},
+	"About": {
+		"title": "About me",
+		"bio1": "I'm a passionate self-taught developer with a great love for programming and technology. Born in <location>Ancash, Peru</location>, I've built my career independently and also continued my studies in Software Development at <school>SENATI</school> <years>(2019-2021)</years>. I enjoy working in teams and have experience in both frontend and backend development.",
+		"bio2": "My main goal is to keep learning and growing as a developer, in order to contribute innovative and high-quality solutions to the projects I participate in."
+	},
+	"Skills": {
+		"title": "Skills"
+	},
+	"Projects": {
+		"title": "Projects",
+		"technologies": "Technologies",
+		"gentlemanBook": "This application is an online book that covers software development and clean code practices from a frontend developer's perspective. Written in clear and accessible language, it's suitable for anyone interested in learning programming.",
+		"gentlemanBookCollab": "Created in collaboration with the <community>Gentleman Programming</community> community.",
+		"alkybank": "This application simulates a virtual wallet, facilitating transactions and operations between users. It includes money management features, income and expense tracking, and transfer simulation. Implemented with <cleanArch>clean architectures</cleanArch> (DDD), error handling in the Application layer (Use cases), data validation, and documentation via <openApi>Open API</openApi> (Swagger).",
+		"rickMorty": "This application was created for the <community>Gentleman Programming</community> community challenge, providing detailed information about the characters of the famous TV series \"Rick & Morty\". Explore their episode appearances, search for characters, discover seasons, and enjoy an exciting mini-game. Dive into the fascinating world of Rick and Morty through this application.",
+		"aerolab": "This application presents a catalog of items available for the loyalty program, where users can redeem their points for tech products. The challenge consists of building a catalog view using an API provided by <company>Aerolab</company> and a design provided by the same entity."
+	}
+}
