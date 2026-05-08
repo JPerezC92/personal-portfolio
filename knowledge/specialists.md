@@ -9,5 +9,6 @@
 | Atrium 🏛️  | Frontend Architect          | active |
 | Crucible 🔥 | Test Architect              | active |
 | Herald 📯   | Release Manager             | active |
+| Lumen ✨    | Visual Director             | active |
 
 Future hires emerge as recurring patterns demand ownership.
