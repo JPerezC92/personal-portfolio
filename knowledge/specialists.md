@@ -8,5 +8,6 @@
 | Sentinel 🛡️ | Quality Guardian            | active |
 | Atrium 🏛️  | Frontend Architect          | active |
 | Crucible 🔥 | Test Architect              | active |
+| Herald 📯   | Release Manager             | active |
 
 Future hires emerge as recurring patterns demand ownership.
