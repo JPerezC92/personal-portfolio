@@ -10,5 +10,6 @@
 | Crucible 🔥 | Test Architect              | active |
 | Herald 📯   | Release Manager             | active |
 | Lumen ✨    | Visual Director             | active |
+| Warden 🔒  | Dependency Warden           | active |
 
 Future hires emerge as recurring patterns demand ownership.
