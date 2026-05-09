@@ -34,6 +34,7 @@ yarn-error.log*
 # claude code
 .claude/settings.local.json
 commit.txt
+HANDOFF.md
 
 # playwright
 /test-results/
