@@ -40,6 +40,7 @@ Herald 📯 (Release Manager) never infers that gates are complete from partial 
    - Push: `git push origin <branch>`
    - PR: `gh pr create` — Herald 📯 (Release Manager) authors the PR description by reading the diff and commit history of the feature branch; the implementing specialist does not author it
    - Tag: `git tag <name>` then `git push origin <name>` — ask Curator 🗝️ (Project Lead) for tag name if not supplied
+6. **Return to main**: after every push and PR creation, run `git checkout main` to leave the workspace on the default branch
 
 ### Output
 Report back to Curator 🗝️ (Project Lead) with whichever of these apply:
