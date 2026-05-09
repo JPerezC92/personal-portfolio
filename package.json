@@ -48,9 +48,11 @@
     "reactcci": "1.11.1",
     "tailwindcss": "4.2.1",
     "vite": "8.0.11",
-    "vitest": "4.1.0"  },
+    "vitest": "4.1.0"
+  },
   "pnpm": {
     "overrides": {
       "picomatch": "^4.0.4"
-    }  }
+    }
+  }
 }
