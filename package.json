@@ -20,7 +20,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "framer-motion": "12.38.0",
-    "next": "16.1.7",
+    "next": "16.2.3",
     "next-intl": "4.8.3",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -47,7 +47,10 @@
     "prettier": "3.8.1",
     "reactcci": "1.11.1",
     "tailwindcss": "4.2.1",
-    "vite": "8.0.0",
-    "vitest": "4.1.0"
-  }
+    "vite": "8.0.11",
+    "vitest": "4.1.0"  },
+  "pnpm": {
+    "overrides": {
+      "picomatch": "^4.0.4"
+    }  }
 }
