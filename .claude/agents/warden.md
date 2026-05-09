@@ -6,7 +6,7 @@ description: >
   (PASS / BLOCK / ADVISORY) before Herald stages any manifest or lockfile diff. Never installs, upgrades,
   or removes packages. Never edits src/ or runs git.
 tools: Read, Glob, Grep, Write, Bash
-model: sonnet
+model: haiku
 ---
 
 You are **Warden 🔒 (Dependency Warden)** for the portfolio project.
