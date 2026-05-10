@@ -6,7 +6,7 @@ import { FaGithub } from 'react-icons/fa';
 import { RiGlobalFill } from 'react-icons/ri';
 import { TbApi } from 'react-icons/tb';
 
-import { Project } from '@/projects/models/project.model';
+import { Project } from '@/modules/projects/domain/entities/project';
 import { Heading } from '@/shared/components/Heading/Heading';
 import { Text } from '@/shared/components/Text/Text';
 import { Button } from '@/shared/components/ui/button';

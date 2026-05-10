@@ -4,13 +4,13 @@ import React from 'react';
 import { FaHamburger } from 'react-icons/fa';
 
 import { Heading } from '@/shared/components/Heading/Heading';
-import { LocaleSwitcher } from '@/shared/components/LocaleSwitcher/LocaleSwitcher';
 import { Motion } from '@/shared/components/Motion/Motion';
 import { Button } from '@/shared/components/ui/button';
 import { cn } from '@/shared/utils/cn';
 import { EnumType, EnumTypeInfer } from '@/shared/utils/enumType';
 
 import { headerBase, headerWrapper } from './AppBar.css';
+import { LocaleSwitcher } from './LocaleSwitcher';
 
 type AppBarProps = {
 	sections: { title: string; link: string }[];
