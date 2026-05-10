@@ -6,8 +6,12 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 
 import { routing } from '@/i18n/routing';
-import { localeLabels } from '@/modules/navigation/domain/entities/locale-labels';
 import { cn } from '@/shared/utils/cn';
+
+const localeLabels: Record<string, string> = {
+	es: 'ES',
+	en: 'EN',
+};
 
 export const LocaleSwitcher: React.FC = () => {
 	const pathname = usePathname();
