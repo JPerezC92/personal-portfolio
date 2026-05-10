@@ -2,26 +2,25 @@
 
 import { MotionProps } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
-import { ProjectCard } from '@/projects/components/ProjectCard/ProjectCard';
-import { AppBar } from '@/shared/components/AppBar/AppBar';
+import { ProjectCard } from '@/modules/projects/components/ProjectCard';
+import { ProjectsServiceError } from '@/modules/projects/domain/errors/projects-service.error';
+import { useProjectList } from '@/modules/projects/hooks/use-project-list';
+import { AppBar } from '@/modules/navigation/components/AppBar';
+import { useNavigation } from '@/modules/navigation/hooks/use-navigation';
+import { sectionList } from '@/modules/navigation/domain/entities/section';
+import { SkillList } from '@/modules/skills/components/SkillList';
+import { SocialList } from '@/modules/social-links/components/SocialList';
 import { Heading } from '@/shared/components/Heading/Heading';
 import { Highlight } from '@/shared/components/Highlight/Highlight';
-import { Icon } from '@/shared/components/Icon/Icon';
 import { Motion } from '@/shared/components/Motion/Motion';
 import { Text } from '@/shared/components/Text/Text';
 import { Button } from '@/shared/components/ui/button';
 import { Separator } from '@/shared/components/ui/separator';
-import { skillList } from '@/shared/data/skills';
-import { socialList } from '@/shared/data/socialList';
-import { useProjectList } from '@/shared/data/useProjectList';
 import { cn } from '@/shared/utils/cn';
 import { rgbDataURL } from '@/shared/utils/rgbDataURL';
-import { sectionList } from '@/shared/utils/sections';
-import { webRoutes } from '@/shared/utils/web.routes';
 
 const Section = ({
 	children,
@@ -50,24 +49,12 @@ const Section = ({
 export default function Home() {
 	const t = useTranslations();
 	const projectList = useProjectList();
+	const { sections } = useNavigation();
 
 	return (
 		<>
 			<AppBar
-				sections={[
-					{
-						title: t('Nav.aboutMe'),
-						link: webRoutes.homeSection(sectionList.values.sobre_mi),
-					},
-					{
-						title: t('Nav.skills'),
-						link: webRoutes.homeSection(sectionList.values.conocimientos),
-					},
-					{
-						title: t('Nav.projects'),
-						link: webRoutes.homeSection(sectionList.values.proyectos),
-					},
-				]}
+				sections={sections}
 				className='fixed inset-0 h-max z-10 backdrop-blur-2xl'
 			/>
 
@@ -126,19 +113,7 @@ export default function Home() {
 								</a>
 							</Button>
 
-							{socialList?.map(({ link, icon: SocialIcon, title }) => (
-								<Button
-									key={title}
-									asChild
-									colorScheme='secondary'
-									variant='outline'
-									size='icon'
-								>
-									<Link href={link}>
-										<SocialIcon />
-									</Link>
-								</Button>
-							))}
+							<SocialList />
 						</div>
 					</Motion>
 				</section>
@@ -189,27 +164,7 @@ export default function Home() {
 
 					<Separator className='mt-4 mb-16' />
 
-					<ul
-						className={cn(
-							'flex flex-wrap justify-evenly gap-x-12 gap-y-8 items-center transition-all duration-300',
-							'md:gap-x-24',
-							'xl:gap-x-10 xl:justify-between',
-						)}
-					>
-						{skillList.map(({ description, icon: Ico, color }) => (
-							<li
-								key={description}
-								className='flex flex-col justify-center items-center'
-							>
-								<Icon
-									title={description}
-									size='2xl'
-									icon={<Ico color={color} />}
-								/>
-								<Text component='span'>{description}</Text>
-							</li>
-						))}
-					</ul>
+					<SkillList />
 				</Section>
 
 				<Section id={sectionList.values.proyectos} viewportMount={0.1}>
@@ -218,11 +173,13 @@ export default function Home() {
 					</Heading>
 					<Separator className='mt-4 mb-16' />
 					<ul className='flex flex-col gap-8'>
-						{projectList.map((p) => (
-							<li key={p.title} className='contents'>
-								<ProjectCard project={p} />
-							</li>
-						))}
+						{projectList instanceof ProjectsServiceError ? null : (
+							projectList.map((p) => (
+								<li key={p.title} className='contents'>
+									<ProjectCard project={p} />
+								</li>
+							))
+						)}
 					</ul>
 				</Section>
 			</main>
@@ -239,22 +196,9 @@ export default function Home() {
 			/>
 
 			<footer className='bg-primary-700/20 border-primary-400/50 border-y py-4'>
-				<ul className='flex gap-x-4 justify-center'>
-					{socialList?.map(({ link, icon: SocialIcon, title }) => (
-						<li key={title} className='contents'>
-							<Button
-								asChild
-								colorScheme='secondary'
-								variant='outline'
-								size='icon'
-							>
-								<Link href={link}>
-									<SocialIcon />
-								</Link>
-							</Button>
-						</li>
-					))}
-				</ul>
+				<div className='flex gap-x-4 justify-center'>
+					<SocialList />
+				</div>
 			</footer>
 		</>
 	);
