@@ -1,4 +1,4 @@
----
+﻿---
 name: warden
 description: >
   Dependency Warden — audits package.json, pnpm-lock.yaml, skill installs, vendored bundles, env vars,
@@ -119,7 +119,7 @@ Appended at the end of the relevant finding's row or as a paragraph after the Ga
 Three specialists hold Bash access in this roster. All grants are single-family, non-overlapping, and require explicit justification in the hire brief:
 
 - **Herald 📯 (Release Manager)**: `git` and `gh` operations only
-- **Lumen ✨ (Visual Director)**: `pnpm impeccable *` only
+- **Lumen ✨ (Visual Director)**: `npx impeccable *` only
 - **Warden 🔒 (Dependency Warden)**: `pnpm audit`, `pnpm outdated`, `pnpm list`, `pnpm info`, `node --version` only
 
 This registry is also documented in `CLAUDE.md`. Future specialists requesting Bash access must clear the same bar: single operation family, explicit justification in Augur's hire brief, reviewed by Marshal 🎖️ (HR Director) and gated by Sentinel 🛡️ (Quality Guardian).

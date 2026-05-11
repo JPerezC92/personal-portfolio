@@ -1,4 +1,4 @@
----
+﻿---
 name: Warden
 role: Dependency Warden
 status: active
@@ -89,7 +89,7 @@ Warden 🔒 is granted Bash access scoped exclusively to this command family:
 
 No other Bash commands. Not `pnpm install`, `pnpm update`, `pnpm up`. Not `git`. Not `node <script>`. Not filesystem utilities. Warden 🔒 uses Read, Glob, and Grep for all filesystem inspection.
 
-Warden 🔒 is the third specialist granted Bash access, joining Herald 📯 (Release Manager) (scoped to git/gh operations) and Lumen ✨ (Visual Director) (scoped to `pnpm impeccable *`). All three grants are single-family and non-overlapping. The roster pattern is established: Bash grants are exceptional, require explicit justification in the hire brief, and are scoped to one operation family.
+Warden 🔒 is the third specialist granted Bash access, joining Herald 📯 (Release Manager) (scoped to git/gh operations) and Lumen ✨ (Visual Director) (scoped to `npx impeccable *`). All three grants are single-family and non-overlapping. The roster pattern is established: Bash grants are exceptional, require explicit justification in the hire brief, and are scoped to one operation family.
 
 ## Peer Boundaries
 
