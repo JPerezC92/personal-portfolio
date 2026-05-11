@@ -2,9 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
-import { RiGlobalFill } from 'react-icons/ri';
-import { TbApi } from 'react-icons/tb';
+import { Code, Globe, Webhook } from 'lucide-react';
 
 import { Project } from '@/modules/projects/domain/entities/project';
 import { Heading } from '@/shared/components/Heading/Heading';
@@ -19,9 +17,9 @@ type ProjectCardProps = {
 } & React.ComponentProps<'div'>;
 
 const linkIcons = {
-	web: RiGlobalFill,
-	repositorio: FaGithub,
-	api: TbApi,
+	web: Globe,
+	repositorio: Code,
+	api: Webhook,
 } as const;
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({

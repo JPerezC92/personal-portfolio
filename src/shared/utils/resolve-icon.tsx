@@ -1,19 +1,30 @@
 import React from 'react';
-import * as Ti from 'react-icons/ti';
-import * as Si from 'react-icons/si';
-import * as Fa from 'react-icons/fa';
+import { TiHtml5, TiCss3 } from 'react-icons/ti';
+import { SiJavascript, SiReact, SiTypescript, SiNextdotjs, SiExpress, SiNestjs, SiPrisma } from 'react-icons/si';
+import { FaGitAlt, FaNodeJs } from 'react-icons/fa';
 
-export type IconLibrary = Record<string, React.ComponentType<{ color?: string }>>;
+type IconComponent = React.ComponentType<{ color?: string; className?: string; size?: number | string }>;
 
-export const iconLibraries: IconLibrary = {
-  ...Ti,
-  ...Si,
-  ...Fa,
-} as IconLibrary;
+const iconMap: Record<string, IconComponent> = {
+  TiHtml5,
+  TiCss3,
+  SiJavascript,
+  SiReact,
+  SiTypescript,
+  SiNextdotjs,
+  SiExpress,
+  SiNestjs,
+  SiPrisma,
+  FaGitAlt,
+  FaNodeJs,
+};
 
 export function resolveIcon(name: string, color?: string): React.ReactElement {
-  const IconComponent = iconLibraries[name];
+  const IconComponent = iconMap[name];
   if (!IconComponent) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(`resolveIcon: unknown icon "${name}"`);
+    }
     return <span aria-hidden='true' />;
   }
   return <IconComponent color={color} />;

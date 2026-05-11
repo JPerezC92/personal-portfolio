@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import { FaHamburger } from 'react-icons/fa';
+import { Menu } from 'lucide-react';
 
 import { Heading } from '@/shared/components/Heading/Heading';
 import { Motion } from '@/shared/components/Motion/Motion';
@@ -42,7 +42,7 @@ export const AppBar: React.FC<AppBarProps> = ({ className, sections }) => {
 					onClick={toggleNav}
 					className='mr-4 md:hidden'
 				>
-					<FaHamburger />
+					<Menu />
 				</Button>
 
 				<div className='flex items-center gap-3'>
