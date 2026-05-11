@@ -22,7 +22,7 @@ const buttonVariants = cva(
 				sm: 'px-3 py-1 text-sm',
 				md: 'px-4 py-1 text-base md:text-lg',
 				lg: 'px-6 py-2 text-lg',
-				icon: 'p-2 aspect-square shadow-sm',
+				icon: 'p-3 aspect-square shadow-sm',
 			},
 		},
 		compoundVariants: [
@@ -44,7 +44,7 @@ const buttonVariants = cva(
 				variant: 'outline',
 				colorScheme: 'primary',
 				className:
-					'text-primary-400 border-primary-400 hover:bg-primary-400/20',
+					'text-primary-700 dark:text-primary-400 border-primary-400 hover:bg-primary-400/20',
 			},
 			{
 				variant: 'outline',
@@ -56,7 +56,7 @@ const buttonVariants = cva(
 			{
 				variant: 'ghost',
 				colorScheme: 'primary',
-				className: 'text-primary-400 hover:bg-primary-400/20',
+				className: 'text-primary-700 dark:text-primary-400 hover:bg-primary-400/20',
 			},
 			{
 				variant: 'ghost',
@@ -67,7 +67,7 @@ const buttonVariants = cva(
 			{
 				variant: 'link',
 				colorScheme: 'primary',
-				className: 'text-primary-400 before:border-primary-400',
+				className: 'text-primary-700 dark:text-primary-400 before:border-primary-400',
 			},
 			{
 				variant: 'link',
@@ -80,7 +80,7 @@ const buttonVariants = cva(
 				size: 'icon',
 				colorScheme: 'primary',
 				className:
-					'text-primary-400 border-primary-400/50 hover:bg-primary-400/20 hover:text-primary-500',
+					'text-primary-700 dark:text-primary-400 border-primary-400/50 hover:bg-primary-400/20 hover:text-primary-500',
 			},
 			{
 				variant: 'outline',
