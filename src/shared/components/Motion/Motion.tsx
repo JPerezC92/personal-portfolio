@@ -36,7 +36,7 @@ export const Motion = function Motion<T extends Tag = 'div'>({
 	const shouldReduceMotion = useReducedMotion();
 	const Component = (motion as Record<string, any>)?.[component];
 	const reducedProps = shouldReduceMotion
-		? { initial: false, animate: {}, whileInView: {}, exit: {}, transition: undefined }
+		? { transition: { duration: 0, delay: 0 } }
 		: {};
 	return <Component {...props} {...reducedProps} />;
 };

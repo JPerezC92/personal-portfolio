@@ -22,7 +22,7 @@ const buttonVariants = cva(
 				sm: 'px-3 py-1 text-sm',
 				md: 'px-4 py-1 text-base md:text-lg',
 				lg: 'px-6 py-2 text-lg',
-				icon: 'p-3 aspect-square shadow-sm',
+				icon: 'size-11 shadow-sm',
 			},
 		},
 		compoundVariants: [
@@ -80,7 +80,7 @@ const buttonVariants = cva(
 				size: 'icon',
 				colorScheme: 'primary',
 				className:
-					'text-primary-700 dark:text-primary-400 border-primary-400/50 hover:bg-primary-400/20 hover:text-primary-500',
+					'text-primary-700 dark:text-primary-400 border-primary-400/50 hover:bg-primary-400/20 hover:text-primary-600 dark:hover:text-primary-400',
 			},
 			{
 				variant: 'outline',
