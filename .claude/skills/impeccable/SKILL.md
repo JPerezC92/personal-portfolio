@@ -4,7 +4,7 @@ description: "Use when the user wants to design, redesign, shape, critique, audi
 argument-hint: "[{{command_hint}}] [target]"
 user-invocable: true
 allowed-tools:
-  - Bash(npx impeccable *)
+  - Bash(pnpm dlx impeccable *)
 license: Apache 2.0. Based on Anthropic's frontend-design skill. See NOTICE.md for attribution.
 ---
 
