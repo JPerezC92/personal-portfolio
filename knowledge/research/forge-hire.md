@@ -10,7 +10,7 @@ Identify the role, scope, constraints, required expertise, and workflow integrat
 
 - **Fact**: No current specialist writes application code. Atrium 🏛️ (Frontend Architect), Crucible 🔥 (Test Architect), Sentinel 🛡️ (Quality Guardian), Lumen ✨ (Visual Director), and Warden 🔒 (Dependency Warden) are all read-only auditors. Herald 📯 (Release Manager) runs git operations only. Augur 🔮 (Senior Research Analyst) and Marshal 🎖️ (HR Director) are non-coding roles. Curator 🗝️ (Project Lead) is a pure orchestrator. (Source: `agents/*/profile.md`, `CLAUDE.md`.)
 
-- **Fact**: The clean architecture migration requires creating approximately 25 new files across 4 feature modules (`skills`, `social-links`, `navigation`, `projects`) plus one prerequisite `tsconfig.json` alias update. All files land under `src/modules/` (a directory that does not yet exist). (Source: `knowledge/design/migration-clean-arch-brief.md` §4.)
+- **Fact**: The clean architecture migration requires creating approximately 25 new files across 4 feature modules (`skills`, `social-links`, `navigation`, `projects`) plus one prerequisite `tsconfig.json` alias update. All files land under `src/modules/`. (Source: `knowledge/design/migration-clean-arch-brief.md` §4.)
 
 - **Fact**: The migration is sequenced in 5 steps: tsconfig alias update (prerequisite), then skills → social-links → navigation → projects, ordered by coupling complexity and blast radius. (Source: `knowledge/design/migration-clean-arch-brief.md` §4.)
 
@@ -28,9 +28,9 @@ Identify the role, scope, constraints, required expertise, and workflow integrat
 
 - **Fact**: After migration, `src/shared/data/` dissolves entirely (all three files migrate to their respective modules). Files in `src/shared/components/`, `src/shared/utils/`, and `src/theme/` remain — they are cross-cutting utilities with no single feature owner. (Source: `knowledge/design/migration-clean-arch-brief.md` §2.)
 
-- **Fact**: The tech stack is Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Vanilla Extract CSS, next-intl (i18n), Vitest + Testing Library. No backend, no HTTP calls, no async data fetching. (Source: `package.json`.)
+- **Fact**: The tech stack is Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Vanilla Extract CSS, next-intl (i18n), Vitest + Testing Library. No backend, no HTTP calls, no async data fetching. (Source: `package.json`.)
 
-- **Fact**: Five specialists hold Bash access on the current roster. Forge does not need Bash — TypeScript refactoring requires only file reads and writes. No terminal commands are necessary for pure module scaffolding and import path updates. (Source: `CLAUDE.md` Bash grant registry; `knowledge/design/migration-clean-arch-brief.md` §4.)
+- **Fact**: Five specialists hold Bash access on the current roster. Forge holds a scoped Bash grant limited to lint/format autofix commands (`eslint --fix` and `prettier --write`) scoped to `src/`. All other shell access is forbidden; pure module scaffolding and import path updates use Read, Glob, Grep, Write, and Edit only. (Source: `CLAUDE.md` Bash grant registry; `.claude/agents/forge.md` Hard Rules.)
 
 - **Hypothesis**: Forge will be the first and, for the near term, only code-authoring specialist. If the portfolio expands to include a backend, CMS integration, or animation-heavy UI work, additional domain specialists may be needed. Forge's scope should be bounded to `src/` application code to avoid overlap with future hires.
 
@@ -55,7 +55,7 @@ Identify the role, scope, constraints, required expertise, and workflow integrat
 
 - Hire as **Forge 🔨 (Implementation Specialist)** — "Forge" is a single concrete noun connoting precise craftsmanship and deliberate shaping; the hammer emoji (🔨) reflects a maker role without overlap with any existing roster emoji. The name is short, memorable, and distinct from audit-role names (Atrium, Crucible, Sentinel) which connote spaces or processes.
 - Persona: methodical, layer-obedient, Atrium-deferential. Writes the minimum code that satisfies Atrium's rulebook — no speculative abstractions, no extra flexibility. Treats every Atrium [FAIL] as a to-do item, not a dispute.
-- Tools: Read, Glob, Grep, Write, Edit (no Bash, no WebFetch, no WebSearch)
+- Tools: Read, Glob, Grep, Write, Edit, Bash (Bash scoped to lint/format autofix on `src/` only — no WebFetch, no WebSearch)
 - Model: sonnet
 - Trigger: invoked by Curator 🗝️ (Project Lead) per migration step; not auto-run (implementing specialists are task-triggered, not always-on)
 - Rulebook: `.claude/agents/atrium.md` is the primary source of truth for all code decisions; Forge reads it at the start of every task
@@ -75,7 +75,7 @@ No overlap. Atrium 🏛️ (Frontend Architect) and Crucible 🔥 (Test Architec
 **Required expertise**
 
 - TypeScript 5 — strict mode, path aliases (`@/modules/*`, `@/shared/*`, `@/theme/*`, `@/i18n/*`), explicit return types on all exports, `satisfies` operator
-- Next.js 15 App Router — Server Components, Client Components (`'use client'`), file-based routing, `next-intl` i18n integration
+- Next.js 16 App Router — Server Components, Client Components (`'use client'`), file-based routing, `next-intl` i18n integration
 - React 19 — hooks, functional components, `ReactNode` type, JSX
 - next-intl — `useTranslations`, `getTranslations`, message key conventions; understanding of where i18n calls belong (hook layer, not service layer)
 - Tailwind CSS and Vanilla Extract CSS — class application patterns, co-located style files
@@ -107,7 +107,7 @@ No overlap. Atrium 🏛️ (Frontend Architect) and Crucible 🔥 (Test Architec
 
 **Hard constraints (non-negotiable)**
 
-- No Bash access — pure TypeScript refactoring requires only Read, Glob, Grep, Write, and Edit
+- Bash access is scoped to lint/format autofix only (`eslint --fix`, `prettier --write`) on `src/` files — all other shell access is forbidden; pure module scaffolding and import path updates use Read, Glob, Grep, Write, and Edit only
 - No `pnpm install` without Warden 🔒 (Dependency Warden) APPROVE gate and Curator 🗝️ (Project Lead) routing confirmation
 - No git operations of any kind
 - Work scope is exclusively `src/` and `tsconfig.json` (alias addition only) — no edits to `agents/`, `knowledge/`, `messages/`, `public/`, config files beyond tsconfig paths, or any markdown document

@@ -1,8 +1,8 @@
 # Research Brief: Clean Architecture Migration Plan
 
 **Date:** 2026-05-09
-**Requested by:** Curator (Project Lead)
-**Prepared by:** Augur (Senior Research Analyst)
+**Requested by:** Curator 🗝️ (Project Lead)
+**Prepared by:** Augur 🔮 (Senior Research Analyst)
 **Objective:** Identify feature modules, map existing files to target layers, recommend a static-data service pattern, and sequence the migration of `src/` toward the modular clean architecture defined in `.claude/agents/atrium.md`.
 
 ---
@@ -147,6 +147,10 @@ Key adaptations vs the HTTP pattern in Atrium's spec:
 
 Ordered simplest-first, by coupling complexity and blast radius.
 
+### Step 0 — tsconfig alias update (prerequisite)
+- Add `@/modules/*` alias to `tsconfig.json` paths before any module file is written, so all module imports resolve from day one.
+- This is a prerequisite, not a feature step. It must be completed before Step 1 begins.
+
 ### Step 1 — `skills` module
 - Lowest coupling: no JSX in data, no i18n in data, no existing partial structure to untangle.
 - Files created: `domain/entities/skill.ts`, `domain/errors/skills-service.error.ts`, `services/skills.service.ts`, `hooks/use-skill-list.ts`, `components/SkillList.tsx`.
@@ -174,10 +178,6 @@ Ordered simplest-first, by coupling complexity and blast radius.
 - Files migrated out: `src/projects/` directory (entire, replaced by `src/modules/projects/`), `src/shared/data/useProjectList.tsx`, `src/shared/data/projectList.tsx` (deleted as dead code).
 - `page.tsx` projects section simplified — hook call and `<ProjectCard />` remain but import paths update.
 - Risk level: High (see §6.2 for the `ReactNode`-in-data coupling issue).
-
-### Step 5 — tsconfig alias update
-- Add `@/modules/*` alias to `tsconfig.json` paths at the start of migration (before Step 1) so all module imports resolve from day one.
-- This is a prerequisite, not a feature step. It should be done before Step 1 begins.
 
 ---
 
@@ -217,7 +217,7 @@ Ordered simplest-first, by coupling complexity and blast radius.
 ### 6.2 `ReactNode` embedded in domain entity — Fact, High Risk
 The `Project` entity's `description` field is typed `ReactNode` (`project.model.ts` line 7). This means translated JSX markup (including `<Highlight>` component usage) is constructed inside `useProjectList.tsx` and stored in a domain object. This violates the clean architecture principle of keeping the domain layer free of UI concerns.
 
-The migration must resolve this before the `projects` module can be considered compliant. Two options exist (resolution is for Curator to decide, not Augur to prescribe):
+The migration must resolve this before the `projects` module can be considered compliant. Two options exist (resolution is for Curator 🗝️ (Project Lead) to decide, not Augur 🔮 (Senior Research Analyst) to prescribe):
 - **Option A:** Change `description` to `string` or a structured markdown/content type in the entity; render Highlight in the component layer from that string. Requires message format changes.
 - **Option B:** Accept `ReactNode` in the entity as a deliberate portfolio-specific pragmatic choice and document the deviation. The entity stays non-standard but the rest of the layer boundaries are correct.
 
@@ -242,4 +242,4 @@ The "About me" section in `page.tsx` (lines 146-183) renders biographical copy e
 - `src/shared/components/AppBar/AppBar.css` was not read. Its contents (class names, specificity, potential conflicts) are unknown and could affect the AppBar migration.
 - `src/i18n/navigation.ts` was listed in the original structure summary but was not found during Glob. It may not exist or may have been renamed. The actual i18n navigation helper surface is unverified.
 - No existing tests for `useProjectList`, `skillList`, or `socialList` were found during this session. Test migration scope for those units is unverified.
-- The `tsconfig.json` alias configuration was not read. The exact current alias set needs to be confirmed before Step 5 (alias addition) is executed.
+- The `tsconfig.json` alias configuration was not read. The exact current alias set needs to be confirmed before Step 0 (alias addition) is executed.
