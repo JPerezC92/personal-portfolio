@@ -24,6 +24,9 @@ importers:
       '@types/react-dom':
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.14)
+      agent-browser:
+        specifier: 0.27.0
+        version: 0.27.0
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -1247,6 +1250,10 @@ packages:
   acorn@8.16.0:
     resolution: {integrity: sha512-UVJyE9MttOsBQIDKw1skb9nAwQuR5wuGD3+82K6JgJlm/Y+KI92oNsMNGZCYdDsVtRHSak0pcV5Dno5+4jh9sw==}
     engines: {node: '>=0.4.0'}
+    hasBin: true
+
+  agent-browser@0.27.0:
+    resolution: {integrity: sha512-mmHzVsYFVA6nshNNGJzg83aVMgKpf4h98ytY3pvtJB1Cot0ZyA2bfnkbSngGD56Azkj+GlhVH6qx9DfKOVE0yg==}
     hasBin: true
 
   ajv@6.14.0:
@@ -3947,6 +3954,8 @@ snapshots:
       acorn: 8.16.0
 
   acorn@8.16.0: {}
+
+  agent-browser@0.27.0: {}
 
   ajv@6.14.0:
     dependencies:

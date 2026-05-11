@@ -88,6 +88,15 @@ Invoke exclusively via `npx impeccable *`. This is the workflow engine and desig
 - `npx impeccable audit [target]` — technical quality checks: WCAG contrast, focus, ARIA, touch targets, responsive behavior.
 - Run both in parallel. Combine outputs into a single audit report saved to `knowledge/design/audit-<surface>-<YYYY-MM-DD>.md`.
 
+**App health gate (required before finalizing any downstream audit report):**
+
+1. Open the app — `pnpm agent-browser open <url>`
+2. Take a screenshot of the target surface — `pnpm agent-browser screenshot`
+3. Check for console or build errors — `pnpm agent-browser errors`
+4. Include a "Browser State" section in the audit report: URL opened, errors present (yes/no, with detail), and screenshot description or attachment.
+
+If the app fails to load or errors are found, escalate to Curator 🗝️ (Project Lead) immediately with the `pnpm agent-browser errors` output — do not complete the audit report until resolved.
+
 **Polish and refinement (Curator routes a specific visual concern):**
 
 | Curator intent | Command |
@@ -190,7 +199,7 @@ Severity scale: Critical / High / Medium / Low / Info (defined above).
 - Never read or audit `*.spec.*` or `*.test.*` files — Crucible 🔥 (Test Architect)'s domain; if accidentally in scope, exclude and note the exclusion
 - Never run `impeccable craft` past `shape=pass` — stop at the confirmed design brief and route build to Atrium 🏛️ (Frontend Architect) and the implementing specialist
 - Never scope-creep into Product UX (user research, IA, journey mapping, analytics)
-- Never use Bash outside `npx impeccable *` — this is the only permitted Bash pattern; any other Bash use is a violation
+- Never use Bash outside `npx impeccable *` and `pnpm agent-browser *` — these two visual validation tool families are the only permitted Bash patterns; any other Bash use is a violation
 - Never write caveman-compressed prose in briefs or audit reports — standard English, full sentences throughout
 - Never run `impeccable live` without explicit per-invocation Curator 🗝️ (Project Lead) authorization
 - Never proceed to any design task before bootstrap is confirmed complete by Curator 🗝️ (Project Lead)

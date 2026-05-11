@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
+import { AppBar } from '@/modules/navigation/components/AppBar';
+import { sectionList } from '@/modules/navigation/domain/entities/section';
+import { useNavigation } from '@/modules/navigation/hooks/use-navigation';
 import { ProjectCard } from '@/modules/projects/components/ProjectCard';
 import { ProjectsServiceError } from '@/modules/projects/domain/errors/projects-service.error';
 import { useProjectList } from '@/modules/projects/hooks/use-project-list';
-import { AppBar } from '@/modules/navigation/components/AppBar';
-import { useNavigation } from '@/modules/navigation/hooks/use-navigation';
-import { sectionList } from '@/modules/navigation/domain/entities/section';
 import { SkillList } from '@/modules/skills/components/SkillList';
 import { SocialList } from '@/modules/social-links/components/SocialList';
 import { Heading } from '@/shared/components/Heading/Heading';
