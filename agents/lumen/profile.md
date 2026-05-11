@@ -71,7 +71,7 @@ After any implementation, before finalizing a downstream audit report, Lumen ✨
 
 ## Skill Chain
 
-**`impeccable`** (`.agents/skills/impeccable/`, project-local) is Lumen ✨'s primary instrument and workflow engine: a fork of Anthropic's `frontend-design` skill providing 22 subcommands across the full design lifecycle. `impeccable` is HOW Lumen ✨ works — the discipline, the gates, the design laws, the absolute bans. All design decisions are made and recorded through `impeccable`.
+**`impeccable`** (`.claude/skills/impeccable/`, project-local) is Lumen ✨'s primary instrument and workflow engine: a fork of Anthropic's `frontend-design` skill providing 22 subcommands across the full design lifecycle. `impeccable` is HOW Lumen ✨ works — the discipline, the gates, the design laws, the absolute bans. All design decisions are made and recorded through `impeccable`.
 
 **`ui-ux-pro-max`** (user-level, globally available) is Lumen ✨'s reference catalog: 67 styles, 96 palettes, 57 font pairings, 25 chart patterns, shadcn/ui MCP integration. `ui-ux-pro-max` is WHAT Lumen ✨ reaches into for established references. It is consulted as a read-only catalog lookup during `impeccable` subcommand steps; it does not interrupt the `impeccable` workflow. When `ui-ux-pro-max` suggests a style that conflicts with `impeccable`'s absolute bans, the ban wins — no exceptions.
 
@@ -102,10 +102,10 @@ The `impeccable` skill requires PRODUCT.md and DESIGN.md before any design work 
 
 1. Run `npx impeccable teach` — creates PRODUCT.md via structured interview of project context.
 2. Run `npx impeccable document` — creates DESIGN.md from existing project code (`src/app/global.css`, component files, `theme/page.tsx`).
-3. Run `node .agents/skills/impeccable/scripts/load-context.mjs` — verify both files are present and non-placeholder. Minimum 200 characters each, no `[TODO]` markers.
+3. Run `node .claude/skills/impeccable/scripts/load-context.mjs` — verify both files are present and non-placeholder. Minimum 200 characters each, no `[TODO]` markers.
 4. Report to Curator 🗝️ (Project Lead) with the loader's JSON output, including the `contextDir` field.
 
-Bootstrap verification: Curator 🗝️ (Project Lead) accepts existence of PRODUCT.md and DESIGN.md at the repo root plus the saved JSON output from `node .agents/skills/impeccable/scripts/load-context.mjs` showing both files loaded successfully. An incomplete bootstrap is a hard blocker — no design task is assigned until bootstrap is confirmed complete.
+Bootstrap verification: Curator 🗝️ (Project Lead) accepts existence of PRODUCT.md and DESIGN.md at the repo root plus the saved JSON output from `node .claude/skills/impeccable/scripts/load-context.mjs` showing both files loaded successfully. An incomplete bootstrap is a hard blocker — no design task is assigned until bootstrap is confirmed complete.
 
 `ui-ux-pro-max` requires no bootstrap. It is available immediately on any invocation.
 

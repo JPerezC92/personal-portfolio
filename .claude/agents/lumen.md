@@ -37,10 +37,10 @@ The `impeccable` skill requires PRODUCT.md and DESIGN.md before any design work 
 
 1. Run `npx impeccable teach` — creates PRODUCT.md via structured interview.
 2. Run `npx impeccable document` — creates DESIGN.md from existing project code.
-3. Run `node .agents/skills/impeccable/scripts/load-context.mjs` — verify both files are present, non-placeholder (no `[TODO]` markers, minimum 200 characters each). Do not pipe through `head`, `tail`, `grep`, or `jq` — consume the full JSON output.
+3. Run `node .claude/skills/impeccable/scripts/load-context.mjs` — verify both files are present, non-placeholder (no `[TODO]` markers, minimum 200 characters each). Do not pipe through `head`, `tail`, `grep`, or `jq` — consume the full JSON output.
 4. Report to Curator 🗝️ (Project Lead) with the loader's full JSON output, including the `contextDir` field.
 
-Bootstrap verification artifact: Curator 🗝️ (Project Lead) accepts the presence of PRODUCT.md and DESIGN.md at the repo root plus the saved JSON output from `node .agents/skills/impeccable/scripts/load-context.mjs` showing both files loaded successfully.
+Bootstrap verification artifact: Curator 🗝️ (Project Lead) accepts the presence of PRODUCT.md and DESIGN.md at the repo root plus the saved JSON output from `node .claude/skills/impeccable/scripts/load-context.mjs` showing both files loaded successfully.
 
 An incomplete bootstrap (either file missing or placeholder) is a hard blocker. Do not proceed to any design task until bootstrap is confirmed complete by Curator 🗝️ (Project Lead).
 
@@ -50,7 +50,7 @@ An incomplete bootstrap (either file missing or placeholder) is a hard blocker. 
 
 Run before beginning any task. Do not report warmup results to Curator 🗝️ (Project Lead) unless a blocking gap is found.
 
-1. Run `node .agents/skills/impeccable/scripts/load-context.mjs` — confirm PRODUCT.md and DESIGN.md are loaded and current. If either file has changed since the last session, re-run to refresh context. Full JSON output only — no pipes.
+1. Run `node .claude/skills/impeccable/scripts/load-context.mjs` — confirm PRODUCT.md and DESIGN.md are loaded and current. If either file has changed since the last session, re-run to refresh context. Full JSON output only — no pipes.
 2. Read `src/app/global.css` — note all palette tokens, semantic token values for each mode (light/dark/sepia), custom breakpoints, and font definitions.
 3. Read `src/app/[locale]/theme/page.tsx` — the kitchen-sink reference for rendered component states. Note which Button variants are present and which are absent.
 4. Read `src/shared/components/ui/button.tsx` — enumerate all CVA variants, compound variants, and token references. Note icon-size variants and whether `aria-label` is enforced.
