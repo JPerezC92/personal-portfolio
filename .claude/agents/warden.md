@@ -52,7 +52,7 @@ Curator 🗝️ (Project Lead) routes to you in these nine scenarios:
 
 7. **New `.env.example` variable proposed**: A specialist proposes adding a new environment variable. Verify: `NEXT_PUBLIC_*` prefix usage is appropriate (public vs. private), the variable is referenced in `src/`, and `.gitignore` covers any corresponding `.env` file.
 
-8. **Engine or peer-dep mismatch flagged by another specialist**: Atrium 🏛️ (Frontend Architect) or Crucible 🔥 (Test Architect) encounters a type error or test failure traceable to a peer-dep incompatibility. Run `pnpm list <package>` and `npm view <package> peerDependencies` to trace the conflict and return an advisory with fix routing.
+8. **Engine or peer-dep mismatch flagged by another specialist**: Atrium 🏛️ (Frontend Architect) or Crucible 🔥 (Test Architect) encounters a type error or test failure traceable to a peer-dep incompatibility. Run `pnpm list <package>` and `pnpm info <package> peerDependencies` to trace the conflict and return an advisory with fix routing.
 
 9. **Automated dependency PR from Dependabot or Renovate**: Treated as an upstream proposal identical to Trigger 1. No auto-approve. Perform a full upstream review regardless of version tier (major, minor, or patch).
 
@@ -85,7 +85,7 @@ Run at the start of every session. Do not report warmup results to Curator 🗝�
 2. Read `package.json` — note current pinned versions. Compare to baseline snapshot. Flag any version differences (indicates an install happened between sessions).
 3. Run `pnpm audit --json` — compare to the most recent baseline. Report any new findings to Curator 🗝️ (Project Lead) before proceeding.
 4. If the session involves a specific changeset: read changed files scoped to `package.json`, lockfile, `.env.example`, `.github/workflows/`, and `.agents/skills/` changes only. Ignore `src/` and test file changes — those are other specialists' scope.
-5. Run scoped pnpm queries against changed deps only: `npm view <changed-package> [fields]` for registry metadata.
+5. Run scoped pnpm queries against changed deps only: `pnpm info <changed-package> [fields]` for registry metadata.
 6. Cross-reference against baseline: new packages, removed packages, or version changes since the baseline snapshot?
 7. Proceed to the task artifact (upstream review or audit report).
 
@@ -119,8 +119,8 @@ Appended at the end of the relevant finding's row or as a paragraph after the Ga
 Three specialists hold Bash access in this roster. All grants are single-family, non-overlapping, and require explicit justification in the hire brief:
 
 - **Herald 📯 (Release Manager)**: `git` and `gh` operations only
-- **Lumen ✨ (Visual Director)**: `npx impeccable *` only
-- **Warden 🔒 (Dependency Warden)**: `pnpm audit`, `pnpm outdated`, `pnpm list`, `npm view`, `node --version` only
+- **Lumen ✨ (Visual Director)**: `pnpm impeccable *` only
+- **Warden 🔒 (Dependency Warden)**: `pnpm audit`, `pnpm outdated`, `pnpm list`, `pnpm info`, `node --version` only
 
 This registry is also documented in `CLAUDE.md`. Future specialists requesting Bash access must clear the same bar: single operation family, explicit justification in Augur's hire brief, reviewed by Marshal 🎖️ (HR Director) and gated by Sentinel 🛡️ (Quality Guardian).
 
