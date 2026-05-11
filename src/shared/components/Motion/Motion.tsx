@@ -1,6 +1,6 @@
 'use client';
 import type { HTMLMotionProps, MotionProps as P } from 'framer-motion';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 type Tag =
 	| 'div'
@@ -33,6 +33,10 @@ export const Motion = function Motion<T extends Tag = 'div'>({
 	component = 'div',
 	...props
 }: MotionProps<T>) {
+	const shouldReduceMotion = useReducedMotion();
 	const Component = (motion as Record<string, any>)?.[component];
-	return <Component {...props} />;
+	const reducedProps = shouldReduceMotion
+		? { transition: { duration: 0, delay: 0 } }
+		: {};
+	return <Component {...props} {...reducedProps} />;
 };
