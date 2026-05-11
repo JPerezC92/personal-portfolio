@@ -7,7 +7,7 @@ export const socialLinksService = {
     try {
       return socialList.map((item) => ({
         link: item.link,
-        icon: item.icon.name,
+        icon: item.icon,
         title: item.title,
       }));
     } catch (error) {
