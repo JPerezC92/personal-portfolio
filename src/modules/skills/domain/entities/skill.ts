@@ -1,8 +1,8 @@
-export type IconType = string;
+import type { SkillIconKey } from '@/shared/utils/resolve-icon';
 
 export interface Skill {
 	description: string;
-	icon: IconType;
+	icon: SkillIconKey;
 	color: string;
 	background?: string;
 }
