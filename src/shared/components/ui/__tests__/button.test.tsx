@@ -36,6 +36,9 @@ describe('Button', () => {
 		const button = screen.getByRole('button', { name: 'Link' });
 		expect(button.className).toContain('before:border-primary-400');
 		expect(button.className).toContain('overflow-hidden');
+		expect(button.className).toContain('motion-safe:before:transition-all');
+		expect(button.className).toContain('motion-safe:before:duration-300');
+		expect(button.className).toContain('motion-safe:before:ease-in-out');
 	});
 
 	it('renders icon size', () => {
