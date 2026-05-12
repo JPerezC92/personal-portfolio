@@ -3,7 +3,7 @@
 **Version:** 1.0.0
 **Created by:** Lumen (Visual Director)
 **Date:** 2026-05-11
-**Stack:** Next.js 15, Tailwind v4 (CSS-first @theme), shadcn CSS custom properties, Framer Motion, CVA, Exo 2 typeface
+**Stack:** Next.js 16, Tailwind v4 (CSS-first @theme), shadcn CSS custom properties, Framer Motion, CVA, Exo 2 typeface
 
 ---
 
@@ -51,7 +51,7 @@ All custom palette steps are defined as CSS custom properties and exposed to Tai
 | secondary-50 | #ffebde | Very light orange fill (rarely needed) |
 | secondary-100 | #ffc7b0 | Light orange tint |
 | secondary-200 | #ffa47f | Medium-light fill |
-| secondary-300 | **#ff804d** | **Highlight text color** (`Highlight` component uses secondary-300 with text-shadow) |
+| secondary-300 | **#ff804d** | **Highlight text color in dark/sepia modes** (`Highlight` component uses secondary-600 in light mode, secondary-300 in dark/sepia) |
 | **secondary-400** | **#fe5c1b** | **Social icon buttons, secondary solid buttons, link underlines** |
 | secondary-500 | #e54302 | Hover/active state for secondary-400; icon button background tint base |
 | secondary-600 | #b33300 | Dark orange, accessible on light |
@@ -136,7 +136,7 @@ Do not use for: metadata labels, status indicators, decorative highlights in tex
 
 #### Orange (secondary) — Interaction and Energy
 
-Use for: social icon buttons, CV download button (primary CTA — note this is currently styled as `colorScheme='primary'`), highlighted text in body copy (via Highlight component using secondary-300), secondary action buttons, hover state color for secondary actions.
+Use for: social icon buttons, CV download button (primary CTA — note this is currently styled as `colorScheme='primary'`), highlighted text in body copy (via Highlight component — secondary-600 in light mode, secondary-300 in dark/sepia), secondary action buttons, hover state color for secondary actions.
 
 Do not use for: backgrounds at full opacity on light surfaces (contrast insufficient), success/error states, decorative borders.
 
@@ -166,15 +166,15 @@ The following pairings are used in the current codebase. Approximated contrast r
 | `primary-400` (#32e6c7) on `background` (light) | Light | ~1.9:1 | AA | **Fail — critical** |
 | `primary-400` (#32e6c7) on dark `background` | Dark | ~9:1 | AA | Pass |
 | `secondary-400` (#fe5c1b) on `background` (light) | Light | ~3.1:1 | AA for large text | Marginal |
-| `secondary-300` (#ff804d) as text on light bg | Light | ~2.5:1 | AA | **Fail for normal text** |
+| `secondary-600` (#b33300) as Highlight text on light bg | Light | ~5.8:1 | AA | Pass |
 | `accent-400` (#a43fd9) on dark bg | Dark | ~5.2:1 | AA | Pass |
 | `accent-800` (#2f0b43) tag bg + light foreground | All | N/A | Need browser verify | Unverified |
 | Solid `primary-400` button text (`text-neutral-900` on #32e6c7) | All | ~9.1:1 | AA | Pass |
 
 **Priority contrast flags:**
-1. `primary-400` (#32e6c7) is used as a border, shadow, and text color on the light teal background. As a text color in light mode it will fail WCAG AA. The Heading and Text components use `foreground` (deep teal-black) for color — but outline/ghost button text is set to `text-primary-400` which will fail in light mode. This is a High severity finding.
-2. `secondary-300` (#ff804d) in the `Highlight` component is used for inline highlighted text on a light teal background. At approximately 2.5:1 it fails WCAG AA for normal-weight text. The font-semibold weight partially mitigates at large sizes but fails at body size. This is a High severity finding.
-3. These findings are advisory at this stage — they should be tracked and addressed before release, but they do not block design spec completion.
+1. `primary-400` (#32e6c7) is a border, shadow, and icon color. Outline/ghost/link button text now uses `text-primary-700` in light mode — WCAG AA satisfied. Resolved.
+2. `Highlight` component uses `text-secondary-600` (#b33300) in light mode, `dark:text-secondary-300` in dark/sepia. WCAG AA satisfied in all modes. Resolved.
+3. No blocking contrast findings remain.
 
 ---
 
@@ -290,7 +290,7 @@ The shadcn `--radius` token is set to `0.5rem` (8px). Derived steps:
 
 ### 4.4 Touch Targets
 
-The `size='icon'` button variant uses `p-2 aspect-square shadow-sm`. With a default 18-20px icon, this produces approximately 36-38px rendered size — below the 44px WCAG 2.5.5 minimum. This is a High severity finding. Icon buttons should use `min-w-[44px] min-h-[44px]` or increase to `p-3` to meet the standard.
+The `size='icon'` button variant uses `size-11` (44px × 44px), meeting the WCAG 2.5.5 minimum touch target requirement.
 
 ---
 
@@ -319,9 +319,7 @@ All animation uses Framer Motion via the `Motion` wrapper component (`src/shared
 
 **Scroll reveal:** Sections use `whileInView` with `once: true` — content animates in on first viewport entry and stays visible. The `amount: 0.2` threshold means 20% of the section must be in view before animating.
 
-**Critical gap — reduced-motion:** The `Motion` component does not check `prefers-reduced-motion`. Neither the component nor the call sites apply a `useReducedMotion()` hook or equivalent. This is a High severity accessibility finding. All Framer Motion animations should respect `prefers-reduced-motion: reduce` by either:
-- Using `useReducedMotion()` in the Motion component and removing transform/opacity transitions when active, or
-- Wrapping animation props in a conditional based on the media query result.
+**Reduced-motion:** The `Motion` component calls `useReducedMotion()` from Framer Motion and removes transition timing when reduction is requested. Resolved.
 
 ### 5.4 Recommended Motion Tokens
 
@@ -359,7 +357,7 @@ The Button uses CVA with `variant` × `colorScheme` × `size` dimensions.
 
 **Color scheme gap:** There is no `accent` colorScheme in the button. Technology tags and project type labels use accent-based colors but are not buttons — they are Text/span components. This is the correct design decision. Do not add an accent button colorScheme without a clear use case.
 
-**Link variant note:** The link variant uses a pseudo-element underline (`before:border-b`) that animates `scale-x-0` → `scale-x-100` on hover. This animation is CSS-only. It does not check `prefers-reduced-motion`. Low severity finding.
+**Link variant note:** The link variant uses a pseudo-element underline (`before:border-b`) that animates `scale-x-0` → `scale-x-100` on hover. Transition classes are wrapped in `motion-safe:` — animation is suppressed when `prefers-reduced-motion` is set. Resolved.
 
 ### 6.2 ProjectCard (ProjectCard.tsx)
 
@@ -394,7 +392,7 @@ The Separator inherits `--border` token. In all three modes this produces a subt
 
 ### 6.5 Highlight Component (Highlight.tsx)
 
-Uses `text-secondary-300` (#ff804d) with `text-shadow: 0 0 10px rgb(255 128 77 / opacity)`. The orange glow effect is visually distinctive and thematically consistent with the secondary role (energy / emphasis). However, as noted in Section 2.4, secondary-300 fails WCAG AA contrast for normal-weight text on the light background. Given `font-semibold` weight, the failure is borderline at larger display sizes but clearly fails at body-copy sizes. A remediation path is to use `secondary-600` (#b33300) in light mode and retain `secondary-300` only in dark/sepia modes where the background is dark enough to support it.
+Uses `text-secondary-600` (#b33300) in light mode and `dark:text-secondary-300` (#ff804d) in dark/sepia modes, with `text-shadow: 0 0 10px rgb(255 128 77 / opacity)`. The orange glow effect is visually distinctive and thematically consistent with the secondary role (energy / emphasis). The light-mode step meets WCAG AA contrast requirements.
 
 ---
 
@@ -432,7 +430,7 @@ Tailwind defaults plus one custom breakpoint:
 | 2xl | 1536px | Hero max-height bump |
 | 3xl | 1920px | Custom breakpoint defined; not yet used in observed components |
 
-**Critical breakpoint:** `md` at 768px is where the most significant layout transitions happen. ProjectCard at `md` hides project descriptions (they are `opacity-0 h-0`) and only re-shows them at `lg`. This is a significant content gap — on a 768px-1023px screen a visitor cannot read project descriptions without hovering. This is a Medium severity UX/design finding.
+**Critical breakpoint:** `md` at 768px is where the most significant layout transitions happen. Project descriptions are now visible at all viewport widths — the `md:h-0 md:opacity-0` hide that previously created a 768px–1023px content gap was removed. Resolved.
 
 ---
 
@@ -454,10 +452,10 @@ Icon sizes are managed via the `Icon` component. Specific icon-size tokens are n
 | Requirement | Status | Priority |
 |---|---|---|
 | Body text contrast (all modes) | Pass (estimated) | Verified by token values |
-| Primary-400 as text on light background | Fail | High — do not use as text color in light mode |
-| Secondary-300 Highlight text on light background | Fail (body size) | High — use secondary-600 in light mode |
-| Icon button touch targets (44px min) | Fail (approx 36-38px) | High — increase `p-2` to `p-3` on icon size |
-| prefers-reduced-motion in Motion component | Missing | High — add useReducedMotion() guard |
+| Primary-400 as text on light background | Pass (`text-primary-700` in light mode) | Resolved |
+| Secondary-300 Highlight text on light background | Pass (`text-secondary-600` in light mode) | Resolved |
+| Icon button touch targets (44px min) | Pass (`size-11` = 44px) | Resolved |
+| prefers-reduced-motion in Motion component | Pass (useReducedMotion() implemented) | Resolved |
 | Alt text on images | Present (checked in JSX) | Pass |
 | Link titles on icon-only links | Present (`title` prop on Link) | Pass |
 | Focus ring visible | `--ring` token defined for all modes | Pass (needs browser verification) |
@@ -479,10 +477,10 @@ Equivalent register. "Bienvenido a mi perfil" slightly warmer than "Welcome to m
 |---|---|---|
 | Hero headline | ~10% longer | Low (fluid wrap layout) |
 | About bio 1 | ~5% longer | Low (paragraph layout) |
-| Nav "Sobre mi" | ~60% longer than "About me" | Low (nav is flex, wraps fine) |
+| Nav "Sobre mí" | ~60% longer than "About me" | Low (nav is flex, wraps fine) |
 | Nav "Conocimientos" vs "Skills" | 3x character count | Medium at mobile nav — verify wrapping |
 | Project descriptions | 5-20% longer | Low (unconstrained height) |
-| "Technologies" / "Tecnologias" label in cards | 15% longer | Low (Heading, not constrained) |
+| "Technologies" / "Tecnologías" label in cards | 15% longer | Low (Heading, not constrained) |
 
 No string pair has a length difference severe enough to break the current layout. However, if fixed-height containers are added to project cards in future, Spanish strings will require extra care.
 
@@ -511,15 +509,15 @@ No string pair has a length difference severe enough to break the current layout
 
 The following findings are ranked by severity. Critical and High items should be addressed before release.
 
-| # | Severity | Finding | Recommended Fix |
+| # | Severity | Finding | Status |
 |---|---|---|---|
-| 1 | High | `Motion` component has no `prefers-reduced-motion` guard | Add `useReducedMotion()` from Framer Motion; when true, set `initial`, `animate`, `whileInView` to static (no transform/opacity) |
-| 2 | High | `primary-400` (#32e6c7) used as text color on light teal background in outline/ghost/link buttons — fails WCAG AA | In light mode, use `primary-700` or `primary-800` for teal text. In dark mode retain `primary-400`. Implement via Tailwind mode variants on the CVA classes. |
-| 3 | High | `secondary-300` (#ff804d) Highlight text fails WCAG AA on light background | Use `secondary-600` (#b33300) in light mode; `secondary-300` in dark/sepia modes. |
-| 4 | High | Icon buttons are ~36-38px rendered size, below 44px minimum touch target | Change `size='icon'` from `p-2` to `p-3` in the CVA definition. Or add `min-w-[44px] min-h-[44px]` to the icon size class. |
-| 5 | Medium | Project descriptions invisible at 768px-1023px viewport (md-to-lg gap) | Consider showing descriptions at md as a collapsed/expandable detail, or remove the `md:h-0 md:opacity-0` hide and accept the taller card at that range. |
-| 6 | Medium | Icon-only buttons have `title` props but no `aria-label` — screen readers use button's accessible name from content, which is an icon with no text | Add `aria-label` matching the `title` value to all icon-only Button instances |
-| 7 | Medium | CSS link underline animation in Button (link variant) does not respect `prefers-reduced-motion` | Wrap transition classes in `motion-safe:` variant |
-| 8 | Low | `--card` token is identical to `--background` in light and sepia modes | Acceptable if border + shadow are always present on cards, but fragile. Consider a 2-3% lightness offset for card in light/sepia modes. |
-| 9 | Low | Heading CVA base has `text-2xl font-bold` that is always overridden by variant classes | Remove dead base classes to reduce confusion; keep only `uppercase font-bold font-exo2 dark:text-sepia-200` in the base |
+| 1 | ~~High~~ | ~~`Motion` component has no `prefers-reduced-motion` guard~~ | **Resolved** — `useReducedMotion()` added in PR #31 |
+| 2 | ~~High~~ | ~~`primary-400` used as text on light background in outline/ghost/link buttons — fails WCAG AA~~ | **Resolved** — `text-primary-700` in light mode in PR #31 |
+| 3 | ~~High~~ | ~~`secondary-300` Highlight text fails WCAG AA on light background~~ | **Resolved** — `text-secondary-600` in light mode in PR #31 |
+| 4 | ~~High~~ | ~~Icon buttons ~36-38px, below 44px minimum touch target~~ | **Resolved** — `size-11` (44px) in PR #31 |
+| 5 | ~~Medium~~ | ~~Project descriptions invisible at 768px-1023px viewport~~ | **Resolved** — `md:h-0 md:opacity-0` removed in PR #33 |
+| 6 | Medium | Icon-only buttons have `title` props but no `aria-label` | Add `aria-label` matching the `title` value to all icon-only Button instances |
+| 7 | ~~Medium~~ | ~~CSS link underline animation does not respect `prefers-reduced-motion`~~ | **Resolved** — `motion-safe:` prefixes added in PR #33 |
+| 8 | Low | `--card` token is identical to `--background` in light and sepia modes | Acceptable if border + shadow are always present, but fragile. Consider a 2-3% lightness offset. |
+| 9 | Low | Heading CVA base has `text-2xl font-bold` that is always overridden by variant classes | Remove dead base classes; keep only `uppercase font-bold font-exo2 dark:text-sepia-200` in the base |
 | 10 | Low | Text `leading-6` (fixed 24px) is too tight for `lg` and above Text variants | Change `leading-6` to `leading-relaxed` or `leading-7` for lg, xl, 2xl, 3xl Text variants |

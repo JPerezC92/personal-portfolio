@@ -2,7 +2,7 @@
 
 ## Proposal Summary
 
-**Proposed action:** Add `lucide-react@1.14.0` (latest stable) to `dependencies` in `package.json`, to replace `react-icons@5.6.0`.
+**Proposed action:** Add `lucide-react@1.14.0` (latest stable) to `dependencies` in `package.json`, alongside `react-icons@5.6.0`. **Note:** this is a historical pre-install snapshot. Both `lucide-react@1.14.0` and `react-icons@5.6.0` are now installed in `package.json`; migration of remaining react-icons skill-brand usages is pending.
 
 **Proposer:** [Implementing specialist — as routed by Curator 🗝️ (Project Lead)]
 
@@ -39,7 +39,7 @@ Project context:
 
 **Dependencies:** none (zero direct dependencies)
 
-**Maintainer:** ericfennis (eric.fennis@gmail.com)
+**Maintainer:** ericfennis (@ericfennis on GitHub)
 
 **Package size:**
 - Tarball: ~6.8 MB (compressed)
