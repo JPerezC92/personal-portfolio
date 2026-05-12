@@ -8,8 +8,8 @@ import { useSocialList } from '@/modules/social-links/hooks/use-social-list';
 import { Button } from '@/shared/components/ui/button';
 
 const SOCIAL_ICONS: Record<string, LucideIcon> = {
-  Github: Code,
-  Linkedin: Briefcase,
+  Code,
+  Briefcase,
   Mail,
 };
 
@@ -20,7 +20,12 @@ export function SocialList() {
     <>
       {socialLinks.map(({ link, icon, title }) => {
         const Icon = SOCIAL_ICONS[icon];
-        if (!Icon) return null;
+        if (!Icon) {
+          if (process.env.NODE_ENV !== 'production') {
+            console.warn(`SocialList: unknown icon "${icon}"`);
+          }
+          return null;
+        }
         return (
           <Button
             key={title}

@@ -41,6 +41,7 @@ export const AppBar: React.FC<AppBarProps> = ({ className, sections }) => {
 					size='icon'
 					onClick={toggleNav}
 					className='mr-4 md:hidden'
+					aria-label={navState === NavState.values.active ? 'Close navigation' : 'Open navigation'}
 				>
 					<Menu />
 				</Button>

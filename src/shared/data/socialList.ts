@@ -3,12 +3,12 @@ import { SocialLink } from '@/modules/social-links/domain/entities/social-link';
 export const socialList: SocialLink[] = [
   {
     link: 'https://pe.linkedin.com/in/jperezc92',
-    icon: 'Linkedin',
+    icon: 'Briefcase',
     title: 'LinkedIn',
   },
   {
     link: 'https://github.com/JPerezC92',
-    icon: 'Github',
+    icon: 'Code',
     title: 'GitHub',
   },
   {
