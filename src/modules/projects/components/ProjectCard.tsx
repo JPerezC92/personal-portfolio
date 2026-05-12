@@ -97,8 +97,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 					className={cn(
 						'mb-8',
 						'sm:mb-0',
-						'md:h-0 md:opacity-0',
-						'lg:mb-8 lg:h-auto lg:opacity-100',
+						'lg:mb-8',
 					)}
 				>
 					{project.description}

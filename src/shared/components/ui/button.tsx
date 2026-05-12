@@ -12,7 +12,7 @@ const buttonVariants = cva(
 				solid: 'text-neutral-900 hover:shadow-xs',
 				outline: 'hover:shadow-xs',
 				ghost: 'border-transparent',
-				link: 'border-transparent relative before:content-[""] before:absolute before:inset-0 before:border-b before:bottom-1 before:scale-x-0 before:hover:scale-x-100 before:mx-auto overflow-hidden before:duration-300 before:ease-in-out before:transition-all px-0',
+				link: 'border-transparent relative before:content-[""] before:absolute before:inset-0 before:border-b before:bottom-1 before:scale-x-0 before:hover:scale-x-100 before:mx-auto overflow-hidden motion-safe:before:duration-300 motion-safe:before:ease-in-out motion-safe:before:transition-all px-0',
 			},
 			colorScheme: {
 				primary: '',
