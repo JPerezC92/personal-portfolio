@@ -1,4 +1,4 @@
-import { SkillIconKey } from '@/shared/utils/resolve-icon';
+import type { SkillIconKey } from '@/shared/utils/resolve-icon';
 
 export interface Skill {
 	description: string;
