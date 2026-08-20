@@ -1,7 +1,7 @@
 'use client';
+import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-import { Menu } from 'lucide-react';
 
 import { Heading } from '@/shared/components/Heading/Heading';
 import { Motion } from '@/shared/components/Motion/Motion';

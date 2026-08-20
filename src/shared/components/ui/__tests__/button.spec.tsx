@@ -44,7 +44,7 @@ describe('Button', () => {
 	it('renders icon size', () => {
 		render(<Button size='icon'>X</Button>);
 		const button = screen.getByRole('button', { name: 'X' });
-		expect(button.className).toContain('aspect-square');
+		expect(button.className).toContain('size-11');
 	});
 
 	it('handles click events', async () => {

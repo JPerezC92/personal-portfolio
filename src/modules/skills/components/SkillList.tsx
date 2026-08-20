@@ -3,10 +3,10 @@
 import React from 'react';
 
 import { useSkillList } from '@/modules/skills/hooks/use-skill-list';
-import { resolveIcon } from '@/shared/utils/resolve-icon';
 import { Icon } from '@/shared/components/Icon/Icon';
 import { Text } from '@/shared/components/Text/Text';
 import { cn } from '@/shared/utils/cn';
+import { resolveIcon } from '@/shared/utils/resolve-icon';
 
 export function SkillList() {
   const skills = useSkillList();
