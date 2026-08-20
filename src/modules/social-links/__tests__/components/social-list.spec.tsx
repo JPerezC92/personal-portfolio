@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { MockProxy } from 'vitest-mock-extended';
 
 import {
@@ -14,6 +14,10 @@ vi.mock('@/modules/social-links/services/social-links.service');
 
 const mockedService: MockProxy<typeof socialLinksService> =
 	socialLinksService as MockProxy<typeof socialLinksService>;
+
+afterEach(() => {
+	vi.restoreAllMocks();
+});
 
 describe('SocialList', () => {
 	it('renders an aria-labelled link per social entry', async () => {
