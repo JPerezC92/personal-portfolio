@@ -1,8 +1,0 @@
-import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
-
-describe('#NAME#', () => {
-	it('renders', () => {
-		expect(true).toBe(true);
-	});
-});

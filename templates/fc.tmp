@@ -1,9 +1,0 @@
-import React from 'react';
-
-import { cn } from '@/shared/utils/cn';
-
-type #NAME#Props = React.ComponentProps<'div'>;
-
-export const #NAME#: React.FC<#NAME#Props> = ({ className, ...props }) => {
-	return <div className={cn(className)} {...props} />;
-};
