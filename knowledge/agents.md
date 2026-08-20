@@ -35,7 +35,7 @@ If an exact prior-art match exists, return the reference + match strength; do NO
 
 ## Tag forbidden field names
 
-Agents that feed evidence to Quill (note drafter) MUST tag any field name or internal identifier that must NOT appear in the user-visible note. Quill writes from your evidence; your tags protect the note surface.
+Any agent passing content to a downstream writer MUST tag any field name or internal identifier that must NOT appear in user-visible output. The tag protects the downstream surface.
 
 ## User-Authority-Only rule
 
@@ -43,27 +43,22 @@ Never apply a workaround, fix, or state mutation on the strength of prior art al
 
 ## Roster ownership table
 
-| Agent | Role | Team |
-|---|---|---|
-| Cipher 🔓 | Lead Orchestrator | Both |
-| Investigator | Incident root-cause analysis | Incident |
-| Quill 🪶 | Note drafter | Incident |
-| Ledger 📒 | Record-keeper / archive sync | Incident |
-| Scribe ✍️ | Docs & problem management | Incident |
-| Augur 🔮 | Senior Research Analyst | Both |
-| Marshal 🎖️ | HR Director | Both |
-| Vault 🔐 | Catalog Steward | Both |
-| Atrium 🏛️ | Frontend Architect | Dev |
-| Bastion 🧱 | Backend Architect | Dev |
-| Crucible 🔥 | Test Architect | Dev |
-| Forge 🔨 | Implementation Agent | Dev |
-| Herald 📯 | Release Manager | Dev |
-| Inquisitor 🔎 | PR Reviewer | Dev |
-| Lumen ✨ | Visual Director | Dev |
-| Sentinel 🛡️ | Quality Guardian | Dev |
-| Warden 🔒 | Dependency Warden | Dev |
+| Agent | Role |
+|---|---|
+| Cipher 🔓 | Lead Orchestrator |
+| Augur 🔮 | Senior Research Analyst |
+| Marshal 🎖️ | HR Director |
+| Atrium 🏛️ | Frontend Architect |
+| Bastion 🧱 | Backend Architect |
+| Crucible 🔥 | Test Architect |
+| Forge 🔨 | Implementation Agent |
+| Herald 📯 | Release Manager |
+| Inquisitor 🔎 | PR Reviewer |
+| Lumen ✨ | Visual Director |
+| Sentinel 🛡️ | Quality Guardian |
+| Warden 🔒 | Dependency Warden |
 
 Edge cases:
 - Roster additions/changes go through Marshal 🎖️ (HR Director) with an Augur brief.
-- Sentinel 🛡️ owns dev-side markdown governance; Vault 🔐 owns the shared rules + incident-side governance.
+- Sentinel 🛡️ owns dev-side markdown governance (agent specs/CVs, plans/, user-stories/).
 - Cipher owns the user-story lifecycle via the `plan-enforce` skill. Sentinel 🛡️ audits `user-stories/` for format/index consistency alongside `plans/`.
