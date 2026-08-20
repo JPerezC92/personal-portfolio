@@ -31,7 +31,6 @@ Open [http://localhost:3000](http://localhost:3000).
 | `pnpm vitest` | Run unit tests |
 | `pnpm e2e` | Run Playwright E2E tests |
 | `pnpm e2e:ui` | Playwright UI mode |
-| `pnpm reactcci` | Scaffold a new component |
 
 ## Project Structure
 
