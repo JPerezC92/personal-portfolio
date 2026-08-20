@@ -1,7 +1,7 @@
 import React from 'react';
-import { TiHtml5, TiCss3 } from 'react-icons/ti';
-import { SiJavascript, SiReact, SiTypescript, SiNextdotjs, SiExpress, SiNestjs, SiPrisma } from 'react-icons/si';
 import { FaGitAlt, FaNodeJs } from 'react-icons/fa';
+import { SiExpress, SiJavascript, SiNestjs, SiNextdotjs, SiPrisma,SiReact, SiTypescript } from 'react-icons/si';
+import { TiCss3,TiHtml5 } from 'react-icons/ti';
 
 type IconComponent = React.ComponentType<{ color?: string; className?: string; size?: number | string }>;
 

@@ -1,8 +1,8 @@
+import { Code, Globe, Webhook } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import React from 'react';
-import { Code, Globe, Webhook } from 'lucide-react';
 
 import { Project } from '@/modules/projects/domain/entities/project';
 import { Heading } from '@/shared/components/Heading/Heading';

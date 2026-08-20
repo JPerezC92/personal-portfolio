@@ -1,15 +1,25 @@
+import { useQuery } from '@tanstack/react-query';
 import { useTranslations } from 'next-intl';
 
 import { Project } from '@/modules/projects/domain/entities/project';
 import { ProjectsServiceError } from '@/modules/projects/domain/errors/projects-service.error';
 import { projectsService } from '@/modules/projects/services/projects.service';
 
+import { projectKeys } from './keys';
+
 export function useProjectList(): Project[] | ProjectsServiceError {
 	const t = useTranslations('Projects');
-	const raw = projectsService.getAll();
+	const { data, error } = useQuery({
+		queryKey: projectKeys.all,
+		queryFn: async () => {
+			const r = await projectsService.getAll();
+			if (r instanceof ProjectsServiceError) throw r;
+			return r;
+		},
+	});
 
-	if (raw instanceof ProjectsServiceError) {
-		return raw;
+	if (error instanceof ProjectsServiceError) {
+		return error;
 	}
 
 	const descriptions: string[] = [
@@ -19,7 +29,7 @@ export function useProjectList(): Project[] | ProjectsServiceError {
 		String(t.rich('aerolab', { company: (chunks) => String(chunks) })),
 	];
 
-	return raw.map((project, index) => ({
+	return (data ?? []).map((project, index) => ({
 		...project,
 		description: descriptions[index] ?? '',
 	}));

@@ -21,14 +21,10 @@ test.describe('Home page', () => {
 	});
 
 	test('social links point to correct URLs', async ({ page }) => {
-		const heroLinks = page.locator('#hero a');
-		const hrefs = await heroLinks.evaluateAll((els) =>
-			els.map((el) => el.getAttribute('href')),
-		);
-
-		expect(hrefs).toContain('https://pe.linkedin.com/in/jperezc92');
-		expect(hrefs).toContain('https://github.com/JPerezC92');
-		expect(hrefs).toContain('mailto:jperez.c92@gmail.com');
+		const hero = page.locator('#hero');
+		await expect(hero.getByRole('link', { name: 'LinkedIn' })).toHaveAttribute('href', 'https://pe.linkedin.com/in/jperezc92');
+		await expect(hero.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/JPerezC92');
+		await expect(hero.getByRole('link', { name: 'Gmail' })).toHaveAttribute('href', 'mailto:jperez.c92@gmail.com');
 	});
 
 	test('displays all three main sections', async ({ page }) => {
@@ -48,12 +44,11 @@ test.describe('Home page', () => {
 		const skillSection = page.locator('#conocimientos');
 		await expect(skillSection.getByText('React')).toBeAttached();
 		await expect(skillSection.getByText('TypeScript')).toBeAttached();
-		await expect(skillSection.getByText('NextJs')).toBeAttached();
+		await expect(skillSection.getByText('Next.js')).toBeAttached();
 	});
 
 	test('footer has social links', async ({ page }) => {
 		const footer = page.locator('footer');
-		const links = footer.getByRole('link');
-		expect(await links.count()).toBe(3);
+		await expect(footer.getByRole('link')).toHaveCount(3);
 	});
 });

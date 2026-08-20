@@ -8,9 +8,7 @@ import React from 'react';
 import { AppBar } from '@/modules/navigation/components/AppBar';
 import { sectionList } from '@/modules/navigation/domain/entities/section';
 import { useNavigation } from '@/modules/navigation/hooks/use-navigation';
-import { ProjectCard } from '@/modules/projects/components/ProjectCard';
-import { ProjectsServiceError } from '@/modules/projects/domain/errors/projects-service.error';
-import { useProjectList } from '@/modules/projects/hooks/use-project-list';
+import { ProjectList } from '@/modules/projects/components/ProjectList';
 import { SkillList } from '@/modules/skills/components/SkillList';
 import { SocialList } from '@/modules/social-links/components/SocialList';
 import { Heading } from '@/shared/components/Heading/Heading';
@@ -48,7 +46,6 @@ const Section = ({
 
 export default function Home() {
 	const t = useTranslations();
-	const projectList = useProjectList();
 	const { sections } = useNavigation();
 
 	return (
@@ -171,17 +168,9 @@ export default function Home() {
 					<Heading component='h2' fontSize='3xl'>
 						{t('Projects.title')}
 					</Heading>
-					<Separator className='mt-4 mb-16' />
-					<ul className='flex flex-col gap-8'>
-						{projectList instanceof ProjectsServiceError ? null : (
-							projectList.map((p) => (
-								<li key={p.title} className='contents'>
-									<ProjectCard project={p} />
-								</li>
-							))
-						)}
-					</ul>
-				</Section>
+				<Separator className='mt-4 mb-16' />
+				<ProjectList />
+			</Section>
 			</main>
 
 			<Image

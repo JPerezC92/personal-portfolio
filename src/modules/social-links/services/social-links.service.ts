@@ -1,15 +1,18 @@
 import { SocialLink } from '@/modules/social-links/domain/entities/social-link';
 import { SocialLinksServiceError } from '@/modules/social-links/domain/errors/social-links-service.error';
-import { socialList } from '@/shared/data/socialList';
 
 export const socialLinksService = {
-  getAll: (): SocialLink[] | SocialLinksServiceError => {
+  getAll: async (): Promise<SocialLink[] | SocialLinksServiceError> => {
     try {
-      return socialList.map((item) => ({
-        link: item.link,
-        icon: item.icon,
-        title: item.title,
-      }));
+      const res = await fetch('/api/social-links');
+
+      if (!res.ok) {
+        return new SocialLinksServiceError(
+          `Request failed with status ${res.status}`,
+        );
+      }
+
+      return (await res.json()) as SocialLink[];
     } catch (error) {
       return new SocialLinksServiceError(
         error instanceof Error ? error.message : 'Unknown error',

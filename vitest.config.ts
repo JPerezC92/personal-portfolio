@@ -22,6 +22,14 @@ export default defineConfig({
 				find: '@/shared',
 				replacement: path.resolve(__dirname, './src/shared'),
 			},
+			{
+				find: '@/modules',
+				replacement: path.resolve(__dirname, './src/modules'),
+			},
+			{
+				find: '@/i18n',
+				replacement: path.resolve(__dirname, './src/i18n'),
+			},
 			{ find: '@', replacement: path.resolve(__dirname) },
 		],
 	},

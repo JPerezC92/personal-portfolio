@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import { Briefcase, Code, type LucideIcon,Mail } from 'lucide-react';
 import Link from 'next/link';
-import { Code, Briefcase, Mail, type LucideIcon } from 'lucide-react';
+import React from 'react';
 
 import { useSocialList } from '@/modules/social-links/hooks/use-social-list';
 import { Button } from '@/shared/components/ui/button';
