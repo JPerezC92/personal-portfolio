@@ -1,4 +1,5 @@
 ---
+name: marshal
 description: HR Director — assembles and maintains the full roster (incident team + dev team). Creates and updates persona profiles + runtime spec files based on Augur's research.
 mode: subagent
 ---

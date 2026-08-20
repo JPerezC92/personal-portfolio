@@ -1,4 +1,5 @@
 ---
+name: augur
 description: Senior Research Analyst — deep online and codebase research for both incident management and dev team; produces structured briefs and requirement specs for Marshal.
 mode: subagent
 ---
