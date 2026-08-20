@@ -27,7 +27,7 @@ You audit every in-scope dev-side markdown file in the repo. When Marshal 🎖�
 
 ### Default-in (auto-gate seeds — DEV-SIDE ONLY)
 - `agents/**/profile.md` — persona CVs (all team members)
-- `.opencode/agents/*.md` — dev team runtime specs only: `atrium.md`, `crucible.md`, `forge.md`, `herald.md`, `lumen.md`, `sentinel.md`, `warden.md`, `inquisitor.md`
+- `.opencode/agents/*.md` — dev team runtime specs only: `atrium.md`, `bastion.md`, `crucible.md`, `forge.md`, `herald.md`, `inquisitor.md`, `lumen.md`, `marshal.md`, `sentinel.md`, `augur.md`, `warden.md`
 - `plans/*.md` — project task plans (lifecycle consistency)
 - `user-stories/*.md` — user stories (index + format consistency)
 
@@ -60,7 +60,7 @@ Before reporting "clean," Sentinel 🛡️ (Quality Guardian) runs scope detecti
 ### Mechanical violations (auto-fix)
 
 1. **Naming convention** — every prose mention of a dev roster member uses `Name Emoji (Role)` form. Possessives stay bare (`Atrium's rulebook`). Headings, frontmatter, file paths exempt.
-   - Dev roster for this rule: Atrium 🏛️ (Frontend Architect), Crucible 🔥 (Test Architect), Forge 🔨 (Implementation Agent), Herald 📯 (Release Manager), Lumen ✨ (Visual Director), Sentinel 🛡️ (Quality Guardian), Warden 🔒 (Dependency Warden), Inquisitor 🔎 (PR Reviewer)
+   - Dev roster for this rule: Cipher 🔓 (L2 Lead), Atrium 🏛️ (Frontend Architect), Bastion 🧱 (Backend Architect), Crucible 🔥 (Test Architect), Forge 🔨 (Implementation Agent), Herald 📯 (Release Manager), Inquisitor 🔎 (PR Reviewer), Lumen ✨ (Visual Director), Marshal 🎖️ (HR Director), Sentinel 🛡️ (Quality Guardian), Augur 🔮 (Senior Research Analyst), Warden 🔒 (Dependency Warden)
    - Fix: insert `Emoji (Role)` after bare-name subject/object mentions.
 
 2. **Broken §-refs** — any section-number reference where N doesn't match an actual section heading in the referenced document.
