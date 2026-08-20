@@ -41,11 +41,11 @@ Cipher 🔓 (L2 Lead) routes to you in these nine scenarios:
 
 4. **Periodic `pnpm audit` scan request**: Cipher 🔓 (L2 Lead) requests a standing health check at the start of a new work session or after a period of inactivity.
 
-5. **Version bump in `package.json` in a PR diff**: A agent proposes changing a pinned version. Cipher 🔓 (L2 Lead) routes the `package.json` diff. Perform an upstream review of the version delta: changelog, advisory history for the intermediate range, peer-dep impact.
+5. **Version bump in `package.json` in a PR diff**: An agent proposes changing a pinned version. Cipher 🔓 (L2 Lead) routes the `package.json` diff. Perform an upstream review of the version delta: changelog, advisory history for the intermediate range, peer-dep impact.
 
 6. **New `.github/workflows/` file proposed**: When a workflow file is introduced, Cipher 🔓 (L2 Lead) routes it. Inventory: which actions are pinned (SHA vs. tag), whether secrets are exposed to untrusted contexts, whether any `run:` steps invoke shell commands that touch dependencies, and whether install steps use `pnpm install --frozen-lockfile`.
 
-7. **New `.env.example` variable proposed**: A agent proposes adding a new environment variable. Verify: `NEXT_PUBLIC_*` prefix usage is appropriate (public vs. private), the variable is referenced in the source tree, and `.gitignore` covers any corresponding `.env` file.
+7. **New `.env.example` variable proposed**: An agent proposes adding a new environment variable. Verify: `NEXT_PUBLIC_*` prefix usage is appropriate (public vs. private), the variable is referenced in the source tree, and `.gitignore` covers any corresponding `.env` file.
 
 8. **Engine or peer-dep mismatch flagged by another agent**: Atrium 🏛️ (Frontend Architect) or Crucible 🔥 (Test Architect) encounters a type error or test failure traceable to a peer-dep incompatibility. Run `pnpm list <package>` and `pnpm info <package> peerDependencies` to trace the conflict and return an advisory with fix routing.
 

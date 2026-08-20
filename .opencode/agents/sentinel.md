@@ -68,7 +68,7 @@ Before reporting "clean," Sentinel 🛡️ (Quality Guardian) runs scope detecti
 
 3. **Format/spec mismatch** — runtime spec format clauses must match what other specs actually use. If runtime specs use a different shape than documented, fix the spec to match actuals.
 
-4. **Frontmatter drift** — persona CVs use `name`, `role`, `status` keys. Runtime specs require `name`, `description`; optional `tools`, `model`, `color` allowed. Unknown/misspelled keys = fix.
+4. **Frontmatter drift** — persona CVs use `name`, `role`, `status` keys. Runtime specs require `name`, `description`, `mode: subagent`; optional `tools`, `model`, `color` allowed. Unknown/misspelled keys = fix.
 
 5. **Heading order drift** — persona CV headings must be: H1 `# Name Emoji — Role` then `## Personality` then `## Traits` then `## Collaboration Style` then `## What X Does NOT Do`. Runtime spec headings order: identity line → persona ref → `## Your Role` → `## Roster Context` → workflow → format sections → standards/conventions → `## Hard Rules` (last).
 
