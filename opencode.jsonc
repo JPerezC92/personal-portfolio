@@ -1,0 +1,77 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "autoupdate": true,
+    "permission": {
+        "read": {
+            "*": "allow",
+            "*.env": "deny",
+            "*.env.*": "deny"
+        },
+        "glob": "allow",
+        "grep": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "task": "allow",
+        "skill": "allow",
+        "lsp": "allow",
+        "question": "allow",
+        "edit": "allow",
+        "external_directory": {
+            "*": "allow"
+        },
+        "bash": {
+            "*": "allow",
+            "rm -rf /*": "deny",
+            "rm -rf *": "ask",
+            "rm *": "ask",
+            "mv *": "ask",
+            "cp *": "ask",
+            "chmod *": "ask",
+            "chown *": "ask",
+            "sudo *": "deny",
+            "git push --force *": "deny",
+            "git push *": "ask",
+            "git reset --hard *": "deny",
+            "git clean -fd *": "deny",
+            "git branch -D *": "ask",
+            "gh pr merge *": "deny",
+            "gh repo delete *": "deny",
+            "> /*": "deny",
+            // Stash safety gate (plan-enforce) — model agents may
+            // `git stash push`/`save` (park work) and `git stash apply`
+            // (recover, non-destructive — the entry survives as a durable
+            // backup). `pop`/`drop`/`clear`/`update-ref` stay denied below;
+            // stash erasure is user-only, run manually in the user's terminal.
+            // Read-only inventory allows follow.
+            //
+            // NOTE: The OpenCode TUI must be RESTARTED for any permission change
+            // to take effect. Active sessions do NOT reload the `bash` block at
+            // runtime.
+            "git stash *": "deny",
+            "git stash push": "allow",
+            "git stash push *": "allow",
+            "git stash save": "allow",
+            "git stash save *": "allow",
+            "git stash apply": "allow",
+            "git stash apply *": "allow",
+            "git update-ref *": "deny",
+            "git stash": "deny",
+            "git reflog *": "deny",
+            "git gc": "deny",
+            "git gc *": "deny",
+            "git prune": "deny",
+            "git prune *": "deny",
+            "git repack": "deny",
+            "git repack *": "deny",
+            "git symbolic-ref refs/stash *": "deny",
+            "git stash list": "allow",
+            "git stash show -u": "allow",
+            "git stash show -u *": "allow",
+            "mv plans/*-*": "allow"
+        }
+    },
+    "compaction": {
+        "auto": false,
+        "prune": false
+    }
+}
